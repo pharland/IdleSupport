@@ -6,12 +6,16 @@ public class StatsManager : MonoBehaviour
 {
     [SerializeField] private TMPro.TextMeshProUGUI daysEmployedText;
     [SerializeField] private TMPro.TextMeshProUGUI doshText;
-
+    
     private int daysEmployed = 0;
-    private float dayTimer = 0f;
-    [SerializeField] private float secondsPerDay = 3f;
+    private float dayTimer = 0f; // ticks every second
+    [SerializeField] private float secondsPerDay = 10f; // how many seconds in real time is a day in game
 
     private int totalDosh = 0;
+
+    //public float maxTimeForPerfectCSAT = 5f;
+    public int subtractCSATAmount = 10; //-10% CSAT per interval
+    public float subtractCSATInterval = 3f; //seconds
 
     void Update()
     {
