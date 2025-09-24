@@ -1,13 +1,18 @@
-using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class EmailManager : MonoBehaviour
 {
     public StatsManager statsManager;
 
+    private EmailUIManager uiManager; // cached reference to the UI manager so we can register/unregister new emails
+
     [SerializeField] private TMPro.TextMeshProUGUI correctButtonsClickedText;
     [SerializeField] private TMPro.TextMeshProUGUI incorrectButtonsClickedText;
     [SerializeField] private TMPro.TextMeshProUGUI timeTakenText;
+    public string emailTitle = "New Email"; // Title shown on the button that selects the Current Email
+
+    public float csatScore = 100f;
 
     private int buttonsClicked = 0;
     private int correctButtonsClicked = 0;
@@ -15,42 +20,56 @@ public class EmailManager : MonoBehaviour
     private int totalButtons;
     private int totalCorrectButtons;
     private int totalIncorrectButtons;
-
+    private bool pauseTimer = false;
     private float emailTimer = 0f;
 
-    public float csatScore = 100f;
+    void Awake()
+    {
+        uiManager = Object.FindFirstObjectByType<EmailUIManager>();
+    }
 
     void Start()
     {
-        statsManager = GameObject.Find("Stats").GetComponent<StatsManager>();
+        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         totalCorrectButtons = GameObject.FindGameObjectsWithTag("Correct").Length;
         totalIncorrectButtons = GameObject.FindGameObjectsWithTag("Incorrect").Length;
         //totalButtons = totalCorrectButtons + totalIncorrectButtons;
     }
 
-    void Update()
+    void OnEnable()
     {
-        // Increment email timer and round down to nearest second
-        emailTimer += Time.deltaTime;
-        timeTakenText.text = "Time taken (sec) = " + Mathf.FloorToInt(emailTimer).ToString();
+        if (uiManager != null)
+        {
+            uiManager.RegisterEmail(this);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (uiManager != null)
+        {
+            uiManager.UnregisterEmail(this);
+        }
     }
 
     public void CorrectButtonClick()
     {
         buttonsClicked++;
         correctButtonsClicked++;
-        correctButtonsClickedText.text = "Correct Buttons Clicked = " + correctButtonsClicked.ToString();
+        //correctButtonsClickedText.text = "Correct Buttons Clicked = " + correctButtonsClicked.ToString();
     }
     public void IncorrectButtonClick()
     {
         buttonsClicked++;
         incorrectButtonsClicked++;
-        incorrectButtonsClickedText.text = "Incorrect Buttons Clicked = " + incorrectButtonsClicked.ToString();
         csatScore -= statsManager.subtractCSATAmount;
+        //incorrectButtonsClickedText.text = "Incorrect Buttons Clicked = " + incorrectButtonsClicked.ToString();
     }
 
     public void SendEmailClicked()
     {
+        pauseTimer = true;
+
         // Deduct CSAT based on time taken (10% for every 3 seconds)
         csatScore = 100 - (statsManager.subtractCSATAmount * (emailTimer / statsManager.subtractCSATInterval));
         if (csatScore < 0) csatScore = 0;
@@ -58,12 +77,32 @@ public class EmailManager : MonoBehaviour
         // Check if all correct buttons were clicked and no incorrect buttons were clicked
         if (incorrectButtonsClicked == 0 && buttonsClicked >= totalCorrectButtons)
         {
-            Debug.Log("Email Sent Successfully!");
+            // Replace with UI popup
+            Debug.Log("Email Sent Successfully!"); 
             Debug.Log("Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
+
+            // Add positive SFX
         }
         else
         {
+            statsManager.AddDosh(-2);
+
+            // Replace with UI popup
             Debug.Log("Email Sent with Errors. Payment docked.");
+
+            // add negative SFX
+        }
+
+        Destroy(gameObject);
+    }
+
+    public void TickTimer(float deltaTime)
+    {
+        if (!pauseTimer)
+        {
+            emailTimer += deltaTime;
+            if (timeTakenText != null)
+                timeTakenText.text = "Time taken (sec) = " + Mathf.FloorToInt(emailTimer).ToString();
         }
     }
 }
