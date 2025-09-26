@@ -3123,6 +3123,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8702906348648029529, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_text
+      value: "Hi {currentUser.firstName},\n\nWelcome to your first day at Nanosoft.\nWe
+        need you to hit the ground running ASAP. sp this email will act as a tutorial
+        for how to do your job: respond to customer support emails with SPEED and
+        ACCURACY to get a higher Customer Satisfaction (CSAT) score and increased
+        remuneration (more DOSH). \nImpress your line manager (VIBE) and receive
+        a generous and competitive market-adjusted BONUS. Note: Nanosoft are not
+        required to adjust for cost of living increases.\n\nTo respond to emails,
+        click the CORRECT (green) buttons then hit Send. INCORRECT buttons take TIME
+        to work out (slowly turn red). Please acknowledge your duties below. \n\nWe
+        hope you continue to uphold Nanosoft's reputation as a Top Right Quadrant
+        company. \nNote: Employees who tarnish our core values of SPEED and ACCURACY
+        will be disciplined, including (but not limited to) pay docking or immediate
+        dismissal with no pay.\n\nRegards,\nManagement\n---------------------------------------------------------"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3138,7 +3154,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2261035022140857546, guid: 6ec7d842fc9824046aebc18579524c6c, type: 3}
       propertyPath: m_text
-      value: Button
+      value: Your First Day
       objectReference: {fileID: 0}
     - target: {fileID: 7732651362389766094, guid: 6ec7d842fc9824046aebc18579524c6c, type: 3}
       propertyPath: m_Pivot.x

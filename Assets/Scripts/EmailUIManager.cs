@@ -20,12 +20,28 @@ public class EmailUIManager : MonoBehaviour
     [Tooltip("How quickly should new emails spawn (in seconds)")]
     [SerializeField] private float emailSpawnInterval = 10f;
 
+    [Header("CSAT")]
+    [Tooltip("Anything at or above this is good")]
+    [SerializeField] private int goodCSATThreshold = 95;
+
+    [Tooltip("Anything below this is bad, and anything between this and the Good Threshold is neutral")]
+    [SerializeField] private int badCSATThreshold = 80;
+
+    [Tooltip("How long the CSAT result text will display for (seconds)")]
+    public float cSATFadeTimer = 3f;
+
     private float emailSpawnTimer = 0f;
 
     private readonly Dictionary<EmailManager, GameObject> map = new(); // map an EmailManager to its instantiated button GameObject
     private readonly List<EmailManager> allEmails = new(); // keep track of all registered emails
 
     private EmailManager activeEmail;
+    private TMPro.TextMeshProUGUI csatToDisplay;
+
+    public void Awake()
+    {
+        csatToDisplay = GameObject.Find("DynamicText_CSAT_Score").GetComponent<TMPro.TextMeshProUGUI>();
+    }
 
     // Register a new email with the UI manager, called by EmailManager in Start()
     public void RegisterEmail(EmailManager email)
@@ -97,6 +113,7 @@ public class EmailUIManager : MonoBehaviour
     public void OnTabClicked(EmailManager email)
     {
         ShowEmail(email);
+        // Add button click SFX here
     }
 
     // Make the requested email active and deactivate all others
@@ -121,6 +138,8 @@ public class EmailUIManager : MonoBehaviour
         {
             SpawnNewEmail("New Email");
             emailSpawnTimer = 0f;
+
+            // Add new email spawn SFX here
         }
 
         // Tick all email timers, even if their GameObjects are inactive
@@ -155,5 +174,27 @@ public class EmailUIManager : MonoBehaviour
 
         Debug.LogError("CurrentEmailPrefab or EmailContainerParent not set!");
         return null;
+    }
+
+    public void DisplayEmailCSAT(float csatScore)
+    {
+        // Green if good, yellow if neutral, red if bad
+        csatScore = Mathf.FloorToInt(csatScore);
+        if (csatScore >= goodCSATThreshold)
+        {
+            csatToDisplay.color = Color.green;
+        }
+        else if (csatScore >= badCSATThreshold)
+        {
+            csatToDisplay.color = Color.yellow;
+        }
+        else
+        {
+            csatToDisplay.color = Color.red;
+        }
+        csatToDisplay.text = csatScore.ToString();
+        
+        // Make the text fade over time
+        csatToDisplay.CrossFadeAlpha(0f, cSATFadeTimer, false);
     }
 }

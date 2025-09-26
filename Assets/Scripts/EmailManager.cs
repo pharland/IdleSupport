@@ -41,7 +41,6 @@ public class EmailManager : MonoBehaviour
         if (uiManager != null)
         {
             uiManager.RegisterEmail(this);
-            // Add new email spawn SFX here
         }
     }
 
@@ -103,6 +102,8 @@ public class EmailManager : MonoBehaviour
 
             // add negative SFX
         }
+
+        uiManager.DisplayEmailCSAT(csatScore);
 
         Destroy(gameObject);
     }
