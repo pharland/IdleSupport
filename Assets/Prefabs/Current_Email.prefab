@@ -972,9 +972,9 @@ MonoBehaviour:
   correctButtonsClickedText: {fileID: 2533620907777209830}
   incorrectButtonsClickedText: {fileID: 2023287356616621046}
   timeTakenText: {fileID: 1710621695084293524}
-  emailSpawnInterval: 10
   emailTitle: Your First Day
   csatScore: 100
+  incorrectButtonsCSATPenalty: 10
 --- !u!1 &6308981681408231725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,17 +1177,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Hi {currentUser.firstName},\n\nWelcome to your first day at Nanosoft.\nWe
-    need you to hit the ground running ASAP; this email will act as a tutorial for
-    how to do your job: respond to customer support emails QUICKLY and ACCURATELY
-    and get paid weekly. \nIf you can consistently impress your line manager, look
-    forward to a generous and competitive market-adjusted bonus. Note: Nanosoft are
-    not required to adjust for cost of living increases.\n\nTo respond to emails,
-    click the CORRECT (green) buttons then hit Send. It will take TIME to work out
-    which buttons are INCORRECT (they will slowly turn red). Respond with your acknowledgement
-    of these duties below. \n\nWe hope you continue to uphold Nanosoft's reputation
-    as a Top Right Quadrant company. \nNote: Employees who tarnish of our core values
-    of SPEED and ACCURACY will result in disciplinary action, including (but not
-    limited to) immediate dismissal with no pay.\n\nRegards,\nManagement\n---------------------------------------------------------"
+    need you to hit the ground running ASAP. sp this email will act as a tutorial
+    for how to do your job: respond to customer support emails with SPEED and ACCURACY
+    to get a higher Customer Satisfaction (CSAT) score and increased remuneration
+    (more DOSH). \nImpress your line manager (VIBE) and receive a generous and competitive
+    market-adjusted BONUS. Note: Nanosoft are not required to adjust for cost of
+    living increases.\n\nTo respond to emails, click the CORRECT (green) buttons
+    then hit Send. INCORRECT buttons take TIME to work out (slowly turn red). Please
+    acknowledge your duties below. \n\nWe hope you continue to uphold Nanosoft's
+    reputation as a Top Right Quadrant company. \nNote: Employees who tarnish our
+    core values of SPEED and ACCURACY will be disciplined, including (but not limited
+    to) pay docking or immediate dismissal with no pay.\n\nRegards,\nManagement\n---------------------------------------------------------"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

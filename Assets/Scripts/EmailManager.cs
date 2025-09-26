@@ -17,7 +17,7 @@ public class EmailManager : MonoBehaviour
     private int buttonsClicked = 0;
     private int correctButtonsClicked = 0;
     private int incorrectButtonsClicked = 0;
-    private int totalButtons;
+    //private int totalButtons;
     private int totalCorrectButtons;
     private int totalIncorrectButtons;
     private bool pauseTimer = false;
@@ -30,9 +30,14 @@ public class EmailManager : MonoBehaviour
 
     void Start()
     {
+        // Set up dynamic references on email creation
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         totalCorrectButtons = GameObject.FindGameObjectsWithTag("Correct").Length;
         totalIncorrectButtons = GameObject.FindGameObjectsWithTag("Incorrect").Length;
+
+        // reset CSAT score at start
+        csatScore = 100f;
+
         //totalButtons = totalCorrectButtons + totalIncorrectButtons;
     }
 
@@ -52,53 +57,63 @@ public class EmailManager : MonoBehaviour
         }
     }
 
+    // Called when the player clicks a correct button
     public void CorrectButtonClick()
     {
         buttonsClicked++;
         correctButtonsClicked++;
+
         // Add positive SFX here
+
 
         //correctButtonsClickedText.text = "Correct Buttons Clicked = " + correctButtonsClicked.ToString();
     }
+
+    // Called when the player clicks an incorrect button
     public void IncorrectButtonClick()
     {
         buttonsClicked++;
         incorrectButtonsClicked++;
         csatScore -= statsManager.subtractCSATAmount;
+
         // Add negative SFX here
+
 
         //incorrectButtonsClickedText.text = "Incorrect Buttons Clicked = " + incorrectButtonsClicked.ToString();
     }
 
+    // Called when the player clicks the "Send Email" button
     public void SendEmailClicked()
     {
         pauseTimer = true;
 
         // Deduct CSAT based on time taken (10% for every 3 seconds)
-        csatScore = 100 - (statsManager.subtractCSATAmount * (emailTimer / statsManager.subtractCSATInterval));
+        csatScore -= (emailTimer / statsManager.subtractCSATInterval);
         if (csatScore < 0) csatScore = 0;
 
-        // Check if all correct buttons were clicked and no incorrect buttons were clicked
+        Debug.Log("Email Sent Successfully!");
+        Debug.Log("Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
+
+        // Add dosh based on performance (negative + bad csat if incorrect/not all correct buttons clicked)
         if (incorrectButtonsClicked == 0 && buttonsClicked >= totalCorrectButtons)
         {
-            statsManager.AddDosh(2);
+            // pay base dosh rate
+            statsManager.AddDosh();
 
             // Update Manager vibe
 
-            // Replace with call to function in EmailUiManager to show popup based on CSAT
-            Debug.Log("Email Sent Successfully!"); 
-            Debug.Log("Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
 
             // Add positive SFX
         }
         else
         {
-            statsManager.AddDosh(-2);
+            // Subtract dosh by base pay rate
+            statsManager.SubtractDosh();
+
+            Debug.Log("Email sent with Errors. Payment docked.");
 
             // Update Manager vibe
 
-            // Replace with call to function in EmailUiManager to show bad popup
-            Debug.Log("Email Sent with Errors. Payment docked.");
 
             // add negative SFX
         }
@@ -108,6 +123,7 @@ public class EmailManager : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // EmailUIManager continues to tick the timer each frame while this email is active
     public void TickTimer(float deltaTime)
     {
         if (!pauseTimer)
