@@ -4,20 +4,68 @@ using UnityEngine.UI;
 
 public class StatsManager : MonoBehaviour
 {
-    [SerializeField] private TMPro.TextMeshProUGUI daysEmployedText;
-    [SerializeField] private TMPro.TextMeshProUGUI doshText;
+    [Header("UI References")]
+    [Tooltip("Text field displaying the number of days employed.")]
+    [SerializeField] private TextMeshProUGUI daysEmployedText;
 
-    [SerializeField] private float secondsPerDay; // how many seconds in real time is a day in game
+    [Tooltip("Text field displaying the total dosh earned.")]
+    [SerializeField] private TextMeshProUGUI doshText;
+
+    [Header("Day Progression")]
+    [Tooltip("How many seconds in real time is a day in game.")]
+    [SerializeField] private float secondsPerDay;
+
+
+    [Header("Manager Vibe")]
+    [Tooltip("Current manager vibe, affects dosh earned/lost. Range of 0 to 1")]
+    public float managerVibe = 0.8f;
+
+    [Tooltip("Slider representing manager vibe.")]
+    [SerializeField] private Slider managerVibeSlider;
+
+    [Tooltip("Slider bar changing colour based on manager vibe.")]
+    [SerializeField] private Image managerVibeBar;
+
+    [Tooltip("Anything above this is good.")]
+    public float managerVibeGoodThreshold = 0.95f;
+
+    [Tooltip("Anything below this is bad.")]
+    public float managerVibeBadThreshold = 0.8f;
+
+    [Header("Dosh Settings")]
+    [Tooltip("Base amount of dosh to earn per email sent.")]
+    public float baseDoshPerEmail = 2f;
+
+    [Tooltip("Modifies base dosh earned.")]
+    public float doshModifier = 1f;
+
+    [Tooltip("Base amount of dosh to earn per email sent when Manager vibe is good.")]
+    public float bonusDoshPerEmail = 2f;
+
+    [Tooltip("Modifies bonus dosh earned.")]
+    public float bonusDoshModifier = 1f;
+
+    [Tooltip("Deduct this amount of dosh per email sent with errors.")]
+    public float subtractDoshAmount = 2f;
+
+    [Tooltip("Modifies dosh lost.")]
+    public float doshNegativeModifier = 1f;
+
+    [Header("CSAT Settings")]
+    [Tooltip("Deduct this amount of CSAT for every interval.")]
+    public float subtractCSATAmount = 10f;
+
+    [Tooltip("Deduct CSAT at this interval (seconds).")]
+    public float subtractCSATInterval = 3f;
+
+
+    [HideInInspector]
+    public int emailsSent = 0;
+
     private int daysEmployed = 0;
-    private float dayTimer = 0f; // ticks every second
     private float totalDosh = 0;
-
-    public float baseDoshPerEmail = 2; // base amount of dosh to earn per email sent
-    public float subtractDoshAmount = 2; // deduct this amount of dosh per email sent with errors
-    public float doshModifier = 1f; // multiplier for dosh earned (e.g high CSAT)
-    public float doshNegativeModifier = 1f; // multiplier for dosh lost (e.g incorrect button clicked or low CSAT)
-    public int subtractCSATAmount = 10; // deduct this amount of CSAT for every interval
-    public float subtractCSATInterval = 3f; // deduct CSAT at this interval (seconds)
+    private float dayTimer = 0f; // ticks every second
+    private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
     void Update()
     {
@@ -31,17 +79,58 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    // Call this method to add dosh (base * modifier) when an email is sent
+    /// <summary>
+    /// Adds dosh (base * modifier) when an email is sent
+    /// </summary>
     public void AddDosh()
     {
         totalDosh += Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
         doshText.text = "$" + totalDosh.ToString();
     }
 
-    // Call this method to subtract dosh (base * negative modifier) when an email is sent
+    /// <summary>
+    /// Adds bonus dosh (bonus * modifier) when email is sent AND manager vibe is good
+    /// </summary>
+    public void AddBonusDosh()
+    {
+        totalDosh += Mathf.Round(bonusDoshPerEmail * bonusDoshModifier * 100f) / 100f;
+        doshText.text = "$" + totalDosh.ToString();
+    }
+
+    /// <summary>
+    /// Subtracts dosh (base * negative modifier) when an email is sent
+    /// </summary>
     public void SubtractDosh()
     {
         totalDosh -= Mathf.Round(baseDoshPerEmail * doshNegativeModifier * 100f) / 100f;
         doshText.text = "$" + totalDosh.ToString();
+    }
+
+    // Update manager vibe based on average CSAT
+    public void UpdateManagerVibe(float csatScore)
+    {
+        // Update average CSAT and recalculate manager vibe
+        averageCSAT = ((averageCSAT * (emailsSent - 1)) + csatScore) / emailsSent;
+        managerVibe = Mathf.Clamp01(averageCSAT / 100f);
+
+        // Update slider bar and colour based on vibe thresholds
+        if (managerVibeSlider != null)
+        {
+            managerVibeSlider.value = managerVibe;
+
+            if (managerVibe >= managerVibeGoodThreshold)
+            {
+                managerVibeBar.color = Color.green;
+                AddBonusDosh();
+            }
+            else if (managerVibe >= managerVibeBadThreshold)
+            {
+                managerVibeBar.color = Color.yellow;
+            }
+            else
+            {
+                managerVibeBar.color = Color.red;
+            }
+        }
     }
 }

@@ -974,7 +974,6 @@ MonoBehaviour:
   timeTakenText: {fileID: 1710621695084293524}
   emailTitle: Your First Day
   csatScore: 100
-  incorrectButtonsCSATPenalty: 10
 --- !u!1 &6308981681408231725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,14 +1179,14 @@ MonoBehaviour:
     need you to hit the ground running ASAP. sp this email will act as a tutorial
     for how to do your job: respond to customer support emails with SPEED and ACCURACY
     to get a higher Customer Satisfaction (CSAT) score and increased remuneration
-    (more DOSH). \nImpress your line manager (VIBE) and receive a generous and competitive
-    market-adjusted BONUS. Note: Nanosoft are not required to adjust for cost of
-    living increases.\n\nTo respond to emails, click the CORRECT (green) buttons
-    then hit Send. INCORRECT buttons take TIME to work out (slowly turn red). Please
-    acknowledge your duties below. \n\nWe hope you continue to uphold Nanosoft's
-    reputation as a Top Right Quadrant company. \nNote: Employees who tarnish our
-    core values of SPEED and ACCURACY will be disciplined, including (but not limited
-    to) pay docking or immediate dismissal with no pay.\n\nRegards,\nManagement\n---------------------------------------------------------"
+    (more DOSH). \nConsistently impress your line manager (VIBE) and receive a generous,
+    competitive, and market rate-adjusted BONUS. Note: Nanosoft are not required
+    to adjust for cost of living increases.\n\nTo respond to emails, click the CORRECT
+    (green) buttons then hit Send. INCORRECT buttons take TIME to work out (slowly
+    turn red). Please acknowledge your duties below. \n\nWe hope you continue to
+    uphold Nanosoft's reputation as a Top Right Quadrant company. \nNote: Employees
+    who tarnish our core values of SPEED and ACCURACY will be disciplined, including
+    (but not limited to) pay docking or immediate dismissal with no pay.\n\nRegards,\nManagement\n---------------------------------------------------------"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

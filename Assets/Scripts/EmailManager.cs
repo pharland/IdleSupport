@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
+using TMPro;
 
 public class EmailManager : MonoBehaviour
 {
@@ -7,9 +7,9 @@ public class EmailManager : MonoBehaviour
 
     private EmailUIManager uiManager; // cached reference to the UI manager so we can register/unregister new emails
 
-    [SerializeField] private TMPro.TextMeshProUGUI correctButtonsClickedText;
-    [SerializeField] private TMPro.TextMeshProUGUI incorrectButtonsClickedText;
-    [SerializeField] private TMPro.TextMeshProUGUI timeTakenText;
+    [SerializeField] private TextMeshProUGUI correctButtonsClickedText;
+    [SerializeField] private TextMeshProUGUI incorrectButtonsClickedText;
+    [SerializeField] private TextMeshProUGUI timeTakenText;
     public string emailTitle = "New Email"; // Title shown on the button that selects the Current Email
 
     public float csatScore = 100f;
@@ -83,6 +83,7 @@ public class EmailManager : MonoBehaviour
     public void SendEmailClicked()
     {
         pauseTimer = true;
+        statsManager.emailsSent++;
 
         // Deduct CSAT based on time taken (10% for every 3 seconds)
         csatScore -= (emailTimer / statsManager.subtractCSATInterval);
@@ -115,6 +116,9 @@ public class EmailManager : MonoBehaviour
             // add negative SFX
         }
 
+        statsManager.UpdateManagerVibe(csatScore);
+
+        // Little popup showing CSAT score for this email
         uiManager.DisplayEmailCSAT(csatScore);
 
         Destroy(gameObject);

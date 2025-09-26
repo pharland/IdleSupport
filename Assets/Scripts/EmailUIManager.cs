@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EmailUIManager : MonoBehaviour
 {
@@ -36,7 +37,7 @@ public class EmailUIManager : MonoBehaviour
     private readonly List<EmailManager> allEmails = new(); // keep track of all registered emails
 
     private EmailManager activeEmail;
-    private TMPro.TextMeshProUGUI csatToDisplay;
+    private TextMeshProUGUI csatToDisplay;
 
     public void Awake()
     {
@@ -49,13 +50,13 @@ public class EmailUIManager : MonoBehaviour
         if (email == null || buttonPrefab == null || buttonListParent == null) return;
         if (map.ContainsKey(email)) return;
 
-        GameObject go = Instantiate(buttonPrefab, buttonListParent, false);
+        GameObject newEmailButton = Instantiate(buttonPrefab, buttonListParent, false);
 
-        if (go.TryGetComponent(out CurrentEmailButton tab))
+        if (newEmailButton.TryGetComponent(out CurrentEmailButton tab))
         {
             // Setup the button to reference this email and the UI manager
             tab.Setup(email, this);
-            map[email] = go;
+            map[email] = newEmailButton;
 
             // Add to the list of all emails if not already present
             if (!allEmails.Contains(email))
@@ -78,7 +79,7 @@ public class EmailUIManager : MonoBehaviour
         else
         {
             Debug.LogError("buttonPrefab must have an EmailTabButton component.");
-            Destroy(go);
+            Destroy(newEmailButton);
             return;
         }
     }
@@ -88,9 +89,9 @@ public class EmailUIManager : MonoBehaviour
         if (email == null) return;
 
         // Remove and destroy the associated button
-        if (map.TryGetValue(email, out GameObject go))
+        if (map.TryGetValue(email, out GameObject buttonToBeDeleted))
         {
-            Destroy(go);
+            Destroy(buttonToBeDeleted);
             map.Remove(email);
             allEmails.Remove(email);
         }
@@ -192,7 +193,7 @@ public class EmailUIManager : MonoBehaviour
         {
             csatToDisplay.color = Color.red;
         }
-        csatToDisplay.text = csatScore.ToString();
+        csatToDisplay.text = "CSAT: " + csatScore.ToString() + "%";
 
         // Reset alpha to fully visible
         csatToDisplay.CrossFadeAlpha(1f, 0f, false);
