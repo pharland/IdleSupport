@@ -41,6 +41,7 @@ public class EmailManager : MonoBehaviour
         if (uiManager != null)
         {
             uiManager.RegisterEmail(this);
+            // Add new email spawn SFX here
         }
     }
 
@@ -56,6 +57,8 @@ public class EmailManager : MonoBehaviour
     {
         buttonsClicked++;
         correctButtonsClicked++;
+        // Add positive SFX here
+
         //correctButtonsClickedText.text = "Correct Buttons Clicked = " + correctButtonsClicked.ToString();
     }
     public void IncorrectButtonClick()
@@ -63,6 +66,8 @@ public class EmailManager : MonoBehaviour
         buttonsClicked++;
         incorrectButtonsClicked++;
         csatScore -= statsManager.subtractCSATAmount;
+        // Add negative SFX here
+
         //incorrectButtonsClickedText.text = "Incorrect Buttons Clicked = " + incorrectButtonsClicked.ToString();
     }
 
@@ -77,7 +82,11 @@ public class EmailManager : MonoBehaviour
         // Check if all correct buttons were clicked and no incorrect buttons were clicked
         if (incorrectButtonsClicked == 0 && buttonsClicked >= totalCorrectButtons)
         {
-            // Replace with UI popup
+            statsManager.AddDosh(2);
+
+            // Update Manager vibe
+
+            // Replace with call to function in EmailUiManager to show popup based on CSAT
             Debug.Log("Email Sent Successfully!"); 
             Debug.Log("Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
 
@@ -87,7 +96,9 @@ public class EmailManager : MonoBehaviour
         {
             statsManager.AddDosh(-2);
 
-            // Replace with UI popup
+            // Update Manager vibe
+
+            // Replace with call to function in EmailUiManager to show bad popup
             Debug.Log("Email Sent with Errors. Payment docked.");
 
             // add negative SFX
