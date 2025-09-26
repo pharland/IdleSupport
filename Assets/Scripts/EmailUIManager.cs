@@ -193,7 +193,10 @@ public class EmailUIManager : MonoBehaviour
             csatToDisplay.color = Color.red;
         }
         csatToDisplay.text = csatScore.ToString();
-        
+
+        // Reset alpha to fully visible
+        csatToDisplay.CrossFadeAlpha(1f, 0f, false);
+
         // Make the text fade over time
         csatToDisplay.CrossFadeAlpha(0f, cSATFadeTimer, false);
     }

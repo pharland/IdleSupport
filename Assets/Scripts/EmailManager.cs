@@ -35,9 +35,6 @@ public class EmailManager : MonoBehaviour
         totalCorrectButtons = GameObject.FindGameObjectsWithTag("Correct").Length;
         totalIncorrectButtons = GameObject.FindGameObjectsWithTag("Incorrect").Length;
 
-        // reset CSAT score at start
-        csatScore = 100f;
-
         //totalButtons = totalCorrectButtons + totalIncorrectButtons;
     }
 
