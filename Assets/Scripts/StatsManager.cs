@@ -32,6 +32,9 @@ public class StatsManager : MonoBehaviour
     [Tooltip("Anything below this is bad.")]
     public float managerVibeBadThreshold = 0.8f;
 
+    [Tooltip("If manager vibe is below the bad threshold at this number of days in a row, the player is fired.")]
+    public int badDaysUntilFired = 7;
+
     [Header("Dosh Settings")]
     [Tooltip("Base amount of dosh to earn per email sent.")]
     public float baseDoshPerEmail = 2f;
@@ -62,20 +65,52 @@ public class StatsManager : MonoBehaviour
     [HideInInspector]
     public int emailsSent = 0;
 
+    private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
     private int daysEmployed = 0;
+    private int daysManagerUpset = 0; // incremented at day end if manager vibe is below bad threshold, resets to 0 if vibe is neutral/good at the end of any day
     private float totalDosh = 0;
     private float dayTimer = 0f; // ticks every second
     private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
     void Update()
     {
-        // Increment days employed based on the timer
+        IncrementDay();
+    }
+
+    // Increment days based on the timer
+    private void IncrementDay()
+    {
         dayTimer += Time.deltaTime;
         if (dayTimer >= secondsPerDay)
         {
+            // days employed
             daysEmployed++;
             daysEmployedText.text = daysEmployed.ToString();
             dayTimer = 0f;
+
+            // csat penalty if no emails sent today
+            if (emailsSentToday == 0)
+            {
+                UpdateManagerVibe(0f); // fake 0% CSAT email
+
+                // Play negative SFX here
+            }
+            emailsSentToday = 0;
+
+            // days manager upset
+            if (managerVibe < managerVibeBadThreshold)
+            {
+                daysManagerUpset++;
+            }
+            else
+            {
+                daysManagerUpset = 0;
+            }
+
+            if (daysManagerUpset >= badDaysUntilFired)
+            {
+                Debug.Log("Fired!");
+            }
         }
     }
 
@@ -109,6 +144,8 @@ public class StatsManager : MonoBehaviour
     // Update manager vibe based on average CSAT
     public void UpdateManagerVibe(float csatScore)
     {
+        emailsSentToday++;
+
         // Update average CSAT and recalculate manager vibe
         averageCSAT = ((averageCSAT * (emailsSent - 1)) + csatScore) / emailsSent;
         managerVibe = Mathf.Clamp01(averageCSAT / 100f);

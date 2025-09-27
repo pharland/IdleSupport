@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1544028559591572993
+--- !u!1001 &2459661840416552012
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,29 +8,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 730183531114524302, guid: e181fc346b3d4e74596089af78b21869, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -9.072599
+    - target: {fileID: 96099614307375902, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_text
+      value: Reset pwd
       objectReference: {fileID: 0}
     - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: emailTitle
-      value: Your First Day
+      value: Can't log in
+      objectReference: {fileID: 0}
+    - target: {fileID: 1237324436831040604, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_text
+      value: Check access
+      objectReference: {fileID: 0}
+    - target: {fileID: 1285897090373823357, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_text
+      value: I can't do that
       objectReference: {fileID: 0}
     - target: {fileID: 1578563207859439678, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: Nanosoft
+      value: Sarah Bogan - Googlies
       objectReference: {fileID: 0}
     - target: {fileID: 2271404086559957812, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: Wait, what?
+      value: You can do it
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321204006901656615, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -142.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3321204006901656615, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 48.8
       objectReference: {fileID: 0}
     - target: {fileID: 5181796877448258736, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: Your First Day
+      value: Can't log in
       objectReference: {fileID: 0}
     - target: {fileID: 5451068009645961043, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_Name
-      value: Current_Email_First_Day
+      value: Current_Email_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5724954984744685026, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 76.3
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_Pivot.x
@@ -58,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 383.0987
+      value: 384.4345
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 334.3756
+      value: 334.29
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_LocalPosition.x
@@ -94,11 +114,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 72.63966
+      value: 73.84359
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23.9204
+      value: -24.158
       objectReference: {fileID: 0}
     - target: {fileID: 7763827570420825544, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -112,32 +132,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8102880842108704776, guid: e181fc346b3d4e74596089af78b21869, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 18.1
-      objectReference: {fileID: 0}
     - target: {fileID: 8702906348648029529, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: "Hi {currentUser.firstName},\r\n\r\nWelcome to your first day at Nanosoft.\r\nWe
-        need you to hit the ground running ASAP. so this email will act as a tutorial
-        for how to do your job: respond to customer support emails with SPEED and
-        ACCURACY to get a higher Customer Satisfaction (CSAT) score and increased
-        remuneration (more DOSH). \r\nConsistently impress your line manager (VIBE)
-        and receive a generous, competitive, and market rate-adjusted BONUS. Note:
-        Nanosoft are not required to adjust for cost of living increases. Responding
-        to 0 emails in a day will result in severely decreasing your manager's VIBE.\r\n\r\nTo
-        respond to emails, click the CORRECT (green) buttons then hit Send. INCORRECT
-        buttons take TIME to work out (slowly turn red). Please acknowledge your
-        duties below. \r\n\r\nWe hope you continue to uphold Nanosoft's reputation
-        as a Top Right Quadrant company. \r\nNote: Employees who tarnish our core
-        values of SPEED and ACCURACY will be disciplined, including (but not limited
-        to) pay docking or immediate dismissal with no pay.\r\n\r\nRegards,\r\nManagement\r\n---------------------------------------------------------"
+      value: "Hello Nanosoft Support,\r\n\r\nI can't log in to my Nanosoft account
+        and need someone to reset my password, again! \nCould someone please help?\r\n\r\nRegards,\r\nSarah
+        Bogan\r\nGooglies\r\n---------------------------------------------------------"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8904142990764203621, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -9.072601
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2490472445774668126, guid: e181fc346b3d4e74596089af78b21869, type: 3}
-    - {fileID: 7081860979840378796, guid: e181fc346b3d4e74596089af78b21869, type: 3}
-    - {fileID: 6291607478763055943, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e181fc346b3d4e74596089af78b21869, type: 3}
