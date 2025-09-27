@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5067090794687940465
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1095086313352859132, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: "Nanosoft Support,\n\nThe quarterly reports that get sent to me and
+        the Leadership team do not match up. \nFix immediately or expect us to look
+        for other vendors.\n\nRegards,\nJJ O'Smithy - Amazonian\n---------------------------------------------------------"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 384.4345
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 334.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 74.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2038652954431679853, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2477866537330116243, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: Clear cache
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837448181559307408, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: Reboot power
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466954551052629013, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: Incorrect stats
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346674564715200502, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_Name
+      value: Current_Email3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346674564715200502, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4999088989927936857, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 82.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312136141816367753, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: Fixed error
+      objectReference: {fileID: 0}
+    - target: {fileID: 6718817508212824775, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -12.555
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069603418701355163, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: JJ O'Smithy - Amazonian
+      objectReference: {fileID: 0}
+    - target: {fileID: 7526022945695904657, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_text
+      value: It's correct
+      objectReference: {fileID: 0}
+    - target: {fileID: 8636149048651293053, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 53.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958657343907454483, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: emailTitle
+      value: Incorrect stats
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067516299747900971, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -142.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067516299747900971, guid: 53d1743cec76911469da852f73fff5f2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 21
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 53d1743cec76911469da852f73fff5f2, type: 3}

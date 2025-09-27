@@ -21,6 +21,9 @@ public class EmailUIManager : MonoBehaviour
     [Tooltip("How quickly should new emails spawn (in seconds)")]
     [SerializeField] private float emailSpawnInterval = 10f;
 
+    [Tooltip("Array of possible email prefabs to spawn from")]
+    public GameObject[] emailPrefabs;
+
     [Header("CSAT")]
     [Tooltip("Anything at or above this is good")]
     [SerializeField] private int goodCSATThreshold = 95;
@@ -38,6 +41,8 @@ public class EmailUIManager : MonoBehaviour
 
     private EmailManager activeEmail;
     private TextMeshProUGUI csatToDisplay;
+
+    private int lastEmailPrefabIndex = -1; // Tracks the last spawned email to avoid spawning the same one twice in a row
 
     public void Awake()
     {
@@ -71,7 +76,7 @@ public class EmailUIManager : MonoBehaviour
             }
 
             // If this is the first registered email and none are active, optionally show it
-            if (activeEmail == null && email.gameObject.activeSelf == false)
+            if (activeEmail != null || email.gameObject.activeSelf)
             {
                 // do nothing — keep email hidden until user clicks a tab
             }
@@ -151,11 +156,35 @@ public class EmailUIManager : MonoBehaviour
         }
     }
 
+    // Spawns a new email from the currentEmailPrefab as a child of emailContainerParent
     public EmailManager SpawnNewEmail(string emailTitle = "New Email")
     {
-        // Instantiate a new email prefab and return its EmailManager component
-        if (currentEmailPrefab != null && emailContainerParent != null)
+        if (emailContainerParent != null)
         {
+            // Randomly select an email prefab from the array if available
+            if (emailPrefabs != null && emailPrefabs.Length > 0)
+            {
+                int randomIndex;
+                if (emailPrefabs.Length == 1)
+                {
+                    randomIndex = 0;
+                }
+                else
+                {
+                    do
+                    {
+                        randomIndex = Random.Range(0, emailPrefabs.Length);
+                    } while (randomIndex == lastEmailPrefabIndex);
+                }
+                lastEmailPrefabIndex = randomIndex;
+                currentEmailPrefab = emailPrefabs[randomIndex];
+            }
+            else
+            {
+                Debug.LogError("EmailPrefabs array is not set or has insufficient elements!");
+                return null;
+            }
+
             // Instantiate the email prefab as a child of the Email_List parent
             GameObject newEmail = Instantiate(currentEmailPrefab, emailContainerParent);
 
@@ -164,13 +193,13 @@ public class EmailUIManager : MonoBehaviour
             {
                 emailManager.emailTitle = emailTitle;
                 newEmail.SetActive(true);
+                return emailManager;
             }
             else
             {
                 Debug.LogError("Spawned prefab does not have an EmailManager component!");
+                return null;
             }
-
-            return emailManager;
         }
 
         Debug.LogError("CurrentEmailPrefab or EmailContainerParent not set!");
