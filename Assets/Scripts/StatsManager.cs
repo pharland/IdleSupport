@@ -64,6 +64,8 @@ public class StatsManager : MonoBehaviour
 
     [HideInInspector]
     public int emailsSent = 0;
+    [HideInInspector]
+    public bool isFired = false;
 
     private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
     private int daysEmployed = 0;
@@ -72,9 +74,28 @@ public class StatsManager : MonoBehaviour
     private float dayTimer = 0f; // ticks every second
     private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
+    private GameObject firedPanel; // UI panel to show when fired
+
+    private void Awake()
+    {
+        // initialise fired UI panel and set it to inactive by default
+        firedPanel = GameObject.Find("Panel_Fired");
+        if (firedPanel != null)
+        {
+            firedPanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("FiredPanel not found in scene!");
+        }
+    }
+
     void Update()
     {
-        IncrementDay();
+        if (!isFired)
+        {
+            IncrementDay();
+        }
     }
 
     // Increment days based on the timer
@@ -91,26 +112,33 @@ public class StatsManager : MonoBehaviour
             // csat penalty if no emails sent today
             if (emailsSentToday == 0)
             {
-                UpdateManagerVibe(0f); // fake 0% CSAT email
+                UpdateManagerVibe(0f);
 
                 // Play negative SFX here
             }
-            emailsSentToday = 0;
 
             // days manager upset
             if (managerVibe < managerVibeBadThreshold)
             {
                 daysManagerUpset++;
+
+                // check if fired
+                if (daysManagerUpset >= badDaysUntilFired)
+                {
+                    //enabled FIRED screen ui and pause game
+                    firedPanel.SetActive(true);
+                    isFired = true;
+
+                    // Play fired SFX here
+                }
             }
             else
             {
                 daysManagerUpset = 0;
             }
 
-            if (daysManagerUpset >= badDaysUntilFired)
-            {
-                Debug.Log("Fired!");
-            }
+            // reset emails sent today
+            emailsSentToday = 0;
         }
     }
 
@@ -120,7 +148,7 @@ public class StatsManager : MonoBehaviour
     public void AddDosh()
     {
         totalDosh += Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
-        doshText.text = "$" + totalDosh.ToString();
+        doshText.text = "$" + totalDosh.ToString("F2");
     }
 
     /// <summary>
@@ -129,7 +157,7 @@ public class StatsManager : MonoBehaviour
     public void AddBonusDosh()
     {
         totalDosh += Mathf.Round(bonusDoshPerEmail * bonusDoshModifier * 100f) / 100f;
-        doshText.text = "$" + totalDosh.ToString();
+        doshText.text = "$" + totalDosh.ToString("F2");
     }
 
     /// <summary>
@@ -138,7 +166,7 @@ public class StatsManager : MonoBehaviour
     public void SubtractDosh()
     {
         totalDosh -= Mathf.Round(baseDoshPerEmail * doshNegativeModifier * 100f) / 100f;
-        doshText.text = "$" + totalDosh.ToString();
+        doshText.text = "$" + totalDosh.ToString("F2");
     }
 
     // Update manager vibe based on average CSAT
@@ -148,6 +176,10 @@ public class StatsManager : MonoBehaviour
 
         // Update average CSAT and recalculate manager vibe
         averageCSAT = ((averageCSAT * (emailsSent - 1)) + csatScore) / emailsSent;
+        if (float.IsNaN(averageCSAT) || averageCSAT < 0f)
+        {
+            averageCSAT = 0f;
+        }
         managerVibe = Mathf.Clamp01(averageCSAT / 100f);
 
         // Update slider bar and colour based on vibe thresholds

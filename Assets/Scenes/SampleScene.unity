@@ -3595,7 +3595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1079986384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4551,8 +4551,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   daysEmployedText: {fileID: 1238920635}
   doshText: {fileID: 512220272}
-  secondsPerDay: 20
-  managerVibe: 1
+  secondsPerDay: 2
+  managerVibe: 0.8
   managerVibeSlider: {fileID: 858324404}
   managerVibeBar: {fileID: 213477799}
   managerVibeGoodThreshold: 0.95
@@ -4567,6 +4567,7 @@ MonoBehaviour:
   subtractCSATAmount: 10
   subtractCSATInterval: 3
   emailsSent: 0
+  isFired: 0
 --- !u!224 &1267883057 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8934547839501344486, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}

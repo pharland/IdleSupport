@@ -41,12 +41,19 @@ public class EmailUIManager : MonoBehaviour
 
     private EmailManager activeEmail;
     private TextMeshProUGUI csatToDisplay;
+    private StatsManager statsManager; // Cached reference to StatsManager
 
     private int lastEmailPrefabIndex = -1; // Tracks the last spawned email to avoid spawning the same one twice in a row
 
     public void Awake()
     {
-        csatToDisplay = GameObject.Find("DynamicText_CSAT_Score").GetComponent<TMPro.TextMeshProUGUI>();
+        // Initialise the references
+        csatToDisplay = GameObject.Find("DynamicText_CSAT_Score").GetComponent<TextMeshProUGUI>();
+        if (csatToDisplay == null)
+        {
+            Debug.LogError("Could not find DynamicText_CSAT_Score TextMeshProUGUI component in scene.");
+        }
+        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
     }
 
     // Register a new email with the UI manager, called by EmailManager in Start()
@@ -138,6 +145,8 @@ public class EmailUIManager : MonoBehaviour
 
     void Update()
     {
+        if (statsManager.isFired) return;
+
         // Automatic email spawning
         emailSpawnTimer += Time.deltaTime;
         if (emailSpawnTimer >= emailSpawnInterval)
