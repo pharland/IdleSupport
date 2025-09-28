@@ -36,6 +36,8 @@ public class StatsManager : MonoBehaviour
     public int badDaysUntilFired = 7;
 
     [Header("Dosh Settings")]
+    public float totalDosh = 0;
+
     [Tooltip("Base amount of dosh to earn per email sent.")]
     public float baseDoshPerEmail = 2f;
 
@@ -72,7 +74,6 @@ public class StatsManager : MonoBehaviour
     private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
     private int daysEmployed = 0;
     private int daysManagerUpset = 0; // incremented at day end if manager vibe is below bad threshold, resets to 0 if vibe is neutral/good at the end of any day
-    private float totalDosh = 0;
     private float dayTimer = 0f; // ticks every second
     private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
@@ -158,7 +159,7 @@ public class StatsManager : MonoBehaviour
     public void AddDosh()
     {
         totalDosh += Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
-        doshText.text = "$" + totalDosh.ToString("F2");
+        UpdateDoshUI();
     }
 
     /// <summary>
@@ -167,7 +168,7 @@ public class StatsManager : MonoBehaviour
     public void AddBonusDosh()
     {
         totalDosh += Mathf.Round(bonusDoshPerEmail * bonusDoshModifier * 100f) / 100f;
-        doshText.text = "$" + totalDosh.ToString("F2");
+        UpdateDoshUI();
     }
 
     /// <summary>
@@ -176,6 +177,14 @@ public class StatsManager : MonoBehaviour
     public void SubtractDosh()
     {
         totalDosh -= Mathf.Round(baseDoshPerEmail * doshNegativeModifier * 100f) / 100f;
+        UpdateDoshUI();
+    }
+
+    /// <summary>
+    /// Update the dosh display text
+    /// </summary>
+    public void UpdateDoshUI()
+    {
         doshText.text = "$" + totalDosh.ToString("F2");
     }
 
