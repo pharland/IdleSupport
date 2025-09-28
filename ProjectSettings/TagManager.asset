@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Incorrect
   - Correct
+  - Upgrade
   layers:
   - Default
   - TransparentFX

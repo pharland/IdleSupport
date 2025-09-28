@@ -35,6 +35,13 @@ public class StatsManager : MonoBehaviour
     [Tooltip("If manager vibe is below the bad threshold at this number of days in a row, the player is fired.")]
     public int badDaysUntilFired = 7;
 
+    [Tooltip("Number of days in a row the manager vibe has been below the bad threshold.")]
+    public int daysManagerUpset = 0;
+
+    [Tooltip("Number of days in a row the manager vibe has been above the good threshold.")]
+    public int daysManagerHappy = 0;
+
+
     [Header("Dosh Settings")]
     public float totalDosh = 0;
 
@@ -50,11 +57,21 @@ public class StatsManager : MonoBehaviour
     [Tooltip("Modifies bonus dosh earned.")]
     public float bonusDoshModifier = 1f;
 
+    [Tooltip("If true, weekly bonus dosh is active.")]
+    public bool isWeeklyBonusActive = false;
+
+    [Tooltip("Base amount of dosh earned if Manager Vibe is good every day for a 7 days straight.")]
+    public float bonusDoshPerWeek = 20f;
+
+    [Tooltip("Modifies weekly bonus dosh earned.")]
+    public float bonusDoshPerWeekModifier = 1f;
+
     [Tooltip("Deduct this amount of dosh per email sent with errors.")]
     public float subtractDoshAmount = 2f;
 
     [Tooltip("Modifies dosh lost.")]
     public float doshNegativeModifier = 1f;
+
 
     [Header("CSAT Settings")]
     [Tooltip("Deduct this amount of CSAT for every interval.")]
@@ -62,6 +79,7 @@ public class StatsManager : MonoBehaviour
 
     [Tooltip("Deduct CSAT at this interval (seconds).")]
     public float subtractCSATInterval = 3f;
+
 
     [Header("Emails")]
     [Tooltip("Delay before incorrect buttons start turning red.")]
@@ -79,7 +97,6 @@ public class StatsManager : MonoBehaviour
 
     private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
     private int daysEmployed = 0;
-    private int daysManagerUpset = 0; // incremented at day end if manager vibe is below bad threshold, resets to 0 if vibe is neutral/good at the end of any day
     private float dayTimer = 0f; // ticks every second
     private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
@@ -118,6 +135,19 @@ public class StatsManager : MonoBehaviour
             daysEmployedText.text = daysEmployed.ToString();
             dayTimer = 0f;
 
+            // get a list of all GameObjects with the "Upgrade" tag and get their UpgradeClass component
+            GameObject[] upgradeObjects = GameObject.FindGameObjectsWithTag("Upgrade");
+
+            // loop through each upgrade GameObject and call UnlockUpgrade() if the required day is met
+            foreach (GameObject upgradeObject in upgradeObjects)
+            {
+                UpgradeClass upgrade = upgradeObject.GetComponent<UpgradeClass>();
+                if (upgrade != null && !upgrade.isUnlocked && upgrade.daysToUnlock > 0 && daysEmployed >= upgrade.daysToUnlock)
+                {
+                    upgrade.UnlockUpgrade();
+                }
+            }
+
             // csat penalty if no emails sent today
             if (emailsSentToday == 0)
             {
@@ -142,6 +172,21 @@ public class StatsManager : MonoBehaviour
                 daysManagerUpset = 0;
             }
 
+            // days manager happy
+            if (isWeeklyBonusActive && managerVibe >= managerVibeGoodThreshold)
+            {
+                daysManagerHappy++;
+                if (daysManagerHappy == 7)
+                {
+                    AddWeeklyBonusDosh();
+                    daysManagerHappy = 0;
+                }
+            }
+            else
+            {
+                daysManagerHappy = 0;
+            }
+
             // reset emails sent today
             emailsSentToday = 0;
         }
@@ -164,17 +209,21 @@ public class StatsManager : MonoBehaviour
     /// </summary>
     public void AddDosh()
     {
-        totalDosh += Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
+        var doshToAdd = Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
+        totalDosh += doshToAdd;
         UpdateDoshUI();
+        Debug.Log("WEEKLY BONUS DOSH ADDED!" + doshToAdd.ToString());
     }
 
     /// <summary>
-    /// Adds bonus dosh (bonus * modifier) when email is sent AND manager vibe is good
+    /// Adds bonus dosh (bonus * modifier) when 7 days straight of good manager vibes
     /// </summary>
-    public void AddBonusDosh()
+    public void AddWeeklyBonusDosh()
     {
-        totalDosh += Mathf.Round(bonusDoshPerEmail * bonusDoshModifier * 100f) / 100f;
+        var doshToAdd = Mathf.Round(bonusDoshPerWeek * bonusDoshPerWeekModifier * 100f) / 100f;
+        totalDosh += doshToAdd;
         UpdateDoshUI();
+        Debug.Log("WEEKLY BONUS DOSH ADDED!" + doshToAdd.ToString());
     }
 
     /// <summary>
@@ -206,6 +255,7 @@ public class StatsManager : MonoBehaviour
             averageCSAT = 0f;
         }
         managerVibe = Mathf.Clamp01(averageCSAT / 100f);
+        managerVibe = 1f; //REMOVE AFTER FINISHED TESTING!!!!!!
 
         // Update slider bar and colour based on vibe thresholds
         if (managerVibeSlider != null)
@@ -215,7 +265,6 @@ public class StatsManager : MonoBehaviour
             if (managerVibe >= managerVibeGoodThreshold)
             {
                 managerVibeBar.color = Color.green;
-                AddBonusDosh();
             }
             else if (managerVibe >= managerVibeBadThreshold)
             {

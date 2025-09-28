@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -74.951126, y: 0}
-  m_SizeDelta: {x: 84.5078, y: 15}
+  m_AnchoredPosition: {x: -70.515, y: 0}
+  m_SizeDelta: {x: 93.379, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6579548037238867591
 CanvasRenderer:
@@ -92,15 +92,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 7436616385345509282}
   m_Layer: 5
   m_Name: Upgrade_TEMPLATE
-  m_TagString: Untagged
+  m_TagString: Upgrade
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -174,8 +174,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208.80145, y: 14.9999695}
-  m_SizeDelta: {x: 234.4046, y: 22.0072}
+  m_AnchoredPosition: {x: 213.47003, y: 14.9999695}
+  m_SizeDelta: {x: 239.0732, y: 22.0072}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &7436616385345509282
 MonoBehaviour:
@@ -189,18 +189,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbe8f1b82bfa53b4aaff45bcfc69fc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  isPermanent: 0
   isUnlocked: 0
+  daysToUnlock: 0
   upgradeLevel: 0
   maxUpgradeLevel: 1
   isEnabled: 0
   upgradeCost: 10
   upgradeCostLocked: ???
   upgradeCostMultiplier: 1.5
-  upgradeEffectiveness: 1
   upgradeLockedName: NOT UNLOCKED
   upgradeUnlockedName: NAME GOES HERE
-  upgradeTooltipText: You have not yet discovered this upgrade and therefore do not
-    know what it does yet.
+  upgradeTooltipText: TOOLTIP GOES HERE
   buyButton: {fileID: 9016405053464715081}
   toggleUpgrade: {fileID: 8012572080344193811}
   upgradeNameText: {fileID: 397104786229068472}
@@ -245,8 +245,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.09671, y: 0}
-  m_SizeDelta: {x: 41.2009, y: 15}
+  m_AnchoredPosition: {x: -7.661, y: 0}
+  m_SizeDelta: {x: 32.3295, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &679289263373117622
 CanvasRenderer:
@@ -303,15 +303,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8
+  m_fontSizeBase: 8
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -490,12 +490,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 10
+    m_FontSize: 8
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -907,7 +907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:

@@ -6,9 +6,12 @@ using UnityEngine.EventSystems;
 
 public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler // Add interfaces
 {
+    private StatsManager statsManager;
+
     [Header("State")]
     public bool isPermanent = false;
     public bool isUnlocked = false;
+    public int daysToUnlock = 0;
     [SerializeField] private int upgradeLevel = 0;
     public int maxUpgradeLevel = 1;
     public bool isEnabled = false;
@@ -22,6 +25,7 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public string upgradeLockedName = "NOT UNLOCKED";
     public string upgradeUnlockedName = "NAME GOES HERE";
     public string upgradeTooltipText = "TOOLTIP GOES HERE.";
+    private string defaultTooltipText = "???";
 
     [Header("UI References")]
     public GameObject buyButton;
@@ -40,7 +44,6 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public Color upgradeLevelBaseColor = Color.black;
     public Color maxLevelColor = Color.yellow;
 
-    private StatsManager statsManager;
 
     public void Awake()
     {
@@ -64,6 +67,8 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             upgradeEffectScript = upgradeEffect.GetComponent<IUpgradeBehaviour>();
         }
+
+        defaultTooltipText = "Unlocks after " + daysToUnlock.ToString() + " days.";
     }
 
     // On mouse hover, activate the Tooltip and update its text with the description of this upgrade
@@ -72,7 +77,7 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         if (upgradeTooltip != null)
         {
             upgradeTooltip.SetActive(true);
-            GameObject.Find("DynamicText_Tooltip").GetComponent<TextMeshProUGUI>().text = upgradeTooltipText;
+            GameObject.Find("DynamicText_Tooltip").GetComponent<TextMeshProUGUI>().text = isUnlocked ? upgradeTooltipText : defaultTooltipText;
             upgradeTooltip.transform.position = Mouse.current.position.ReadValue();
         }
         else

@@ -24,7 +24,6 @@ public class UpgradeBonusPay : MonoBehaviour, IUpgradeBehaviour
 
     public void IncreaseUpgradeLevel()
     {
-        //increase dosh modifier by 0.3f per level, then 80% of that increase for each subsequent level
-        statsManager.doshModifier += 0.3f * 0.8f;
+        statsManager.doshModifier += 0.3f;
     }
 }
