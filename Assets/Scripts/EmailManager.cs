@@ -13,6 +13,7 @@ public class EmailManager : MonoBehaviour
     public string emailTitle = "New Email"; // Title shown on the button that selects the Current Email
 
     public float csatScore = 100f;
+    public bool isFirstEmail = false; // only true for the very first email of the game
 
     private int buttonsClicked = 0;
     private int correctButtonsClicked = 0;
@@ -114,6 +115,12 @@ public class EmailManager : MonoBehaviour
 
 
             // add negative SFX
+        }
+
+        // Tutorial finished, timers will now start ticking
+        if (isFirstEmail)
+        {
+            statsManager.isFirstEmailSent = true;
         }
 
         statsManager.UpdateManagerVibe(csatScore);

@@ -145,7 +145,7 @@ public class EmailUIManager : MonoBehaviour
 
     void Update()
     {
-        if (statsManager.isFired) return;
+        if (statsManager.isFired || !statsManager.isFirstEmailSent) return;
 
         // Automatic email spawning
         emailSpawnTimer += Time.deltaTime;
@@ -161,7 +161,9 @@ public class EmailUIManager : MonoBehaviour
         foreach (EmailManager email in allEmails)
         {
             if (email != null)
+            {
                 email.TickTimer(Time.deltaTime);
+            }
         }
     }
 

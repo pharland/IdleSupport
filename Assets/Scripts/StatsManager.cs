@@ -65,7 +65,9 @@ public class StatsManager : MonoBehaviour
     [HideInInspector]
     public int emailsSent = 0;
     [HideInInspector]
-    public bool isFired = false;
+    public bool isFired = false; 
+    public bool isFirstEmailSent = false; // first/tutorial email is sent
+
 
     private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
     private int daysEmployed = 0;
@@ -92,7 +94,7 @@ public class StatsManager : MonoBehaviour
 
     void Update()
     {
-        if (!isFired)
+        if (!isFired && isFirstEmailSent)
         {
             IncrementDay();
         }
@@ -125,11 +127,7 @@ public class StatsManager : MonoBehaviour
                 // check if fired
                 if (daysManagerUpset >= badDaysUntilFired)
                 {
-                    //enabled FIRED screen ui and pause game
-                    firedPanel.SetActive(true);
-                    isFired = true;
-
-                    // Play fired SFX here
+                    FirePlayer();
                 }
             }
             else
@@ -140,6 +138,18 @@ public class StatsManager : MonoBehaviour
             // reset emails sent today
             emailsSentToday = 0;
         }
+    }
+
+    /// <summary>
+    /// Handle firing the player
+    /// </summary>
+    public void FirePlayer()
+    {
+        //enabled FIRED screen ui and pause game
+        firedPanel.SetActive(true);
+        isFired = true;
+
+        // Play fired SFX here
     }
 
     /// <summary>
