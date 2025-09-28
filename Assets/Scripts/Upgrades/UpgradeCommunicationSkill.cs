@@ -1,21 +1,30 @@
 using UnityEngine;
 
+/// <summary>
+/// This upgrade increases the chances of ignoring the bad stuff when a red email response button is clicked
+/// </summary>
 public class UpgradeCommunicationSkill : MonoBehaviour, IUpgradeBehaviour
 {
+    StatsManager statsManager;
+
+    private void Awake()
+    {
+        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
+    }
+
     public void ActivateUpgrade()
     {
-        Debug.Log("Enabled Communication Skill...");
-        // Your effect logic here
+        statsManager.chanceToIngoreIncorrectResponseEffect += 0.1f;
     }
 
     public void DeactivateUpgrade()
     {
-        Debug.Log("Disabled Communication Skill...");
-        // Your effect logic here
+        statsManager.chanceToIngoreIncorrectResponseEffect = 0f;
+
     }
+
     public void IncreaseUpgradeLevel()
     {
-        Debug.Log("Communication Skill Up!");
-        // Your effect logic here
+        statsManager.chanceToIngoreIncorrectResponseEffect += 0.1f;
     }
 }

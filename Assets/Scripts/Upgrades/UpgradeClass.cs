@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler // Add interfaces
 {
     [Header("State")]
+    public bool isPermanent = false;
     public bool isUnlocked = false;
     [SerializeField] private int upgradeLevel = 0;
     public int maxUpgradeLevel = 1;
@@ -16,9 +17,6 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private float upgradeCost = 10f;
     [SerializeField] private string upgradeCostLocked = "???";
     public float upgradeCostMultiplier = 1.5f;
-
-    [Header("Effect")]
-    public float upgradeEffectiveness = 1f;
 
     [Header("Info")]
     public string upgradeLockedName = "NOT UNLOCKED";

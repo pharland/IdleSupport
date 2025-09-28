@@ -19,7 +19,7 @@ public class EmailUIManager : MonoBehaviour
     public Transform emailContainerParent;
 
     [Tooltip("How quickly should new emails spawn (in seconds)")]
-    [SerializeField] private float emailSpawnInterval = 10f;
+    public float emailSpawnInterval = 10f;
 
     [Tooltip("Array of possible email prefabs to spawn from")]
     public GameObject[] emailPrefabs;

@@ -3404,7 +3404,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1252995179890714227, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_Name
-      value: Upgrade_TEMPLATE (1)
+      value: Upgrade_Weekly_Bonus
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_Pivot.x
@@ -3487,9 +3487,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltip
       value: 
       objectReference: {fileID: 1919460657}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: maxUpgradeLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeTooltipText
+      value: Receive a bonus every 7 days if Manager Vibe has been green by the end
+        of each day
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeUnlockedName
+      value: Weekly Bonus
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5629,7 +5646,7 @@ MonoBehaviour:
   managerVibeGoodThreshold: 0.95
   managerVibeBadThreshold: 0.8
   badDaysUntilFired: 7
-  totalDosh: 0
+  totalDosh: 200
   baseDoshPerEmail: 2
   doshModifier: 1
   bonusDoshPerEmail: 2
@@ -5638,6 +5655,8 @@ MonoBehaviour:
   doshNegativeModifier: 1
   subtractCSATAmount: 10
   subtractCSATInterval: 3
+  delayBeforeButtonGoingRed: 5
+  chanceToIngoreIncorrectResponseEffect: 1
   emailsSent: 0
   isFired: 0
   isFirstEmailSent: 0
@@ -6255,6 +6274,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: isPermanent
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
@@ -7764,6 +7787,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: isUnlocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: isPermanent
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}

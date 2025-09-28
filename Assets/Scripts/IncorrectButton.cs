@@ -3,10 +3,11 @@ using UnityEngine.UI;
 
 public class IncorrectButton : MonoBehaviour
 {
+    StatsManager statsManager;
+
     public Color startColour = Color.paleGreen;
     public Color endColour = Color.red;
     public float transitionDuration = 10f; // Duration of the color transition in seconds
-    public float delayBeforeStart = 5f; // Delay before starting the transition in seconds
 
     private Image image; // Reference to the Image component of the button
     private float transitionTimer = 0f; // Timer to track the transition progress
@@ -15,6 +16,7 @@ public class IncorrectButton : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
+        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
     }
 
     void Start()
@@ -31,19 +33,19 @@ public class IncorrectButton : MonoBehaviour
         if (image != null && isTransitioning)
         {
             // Wait before starting the transition
-            if (transitionTimer < delayBeforeStart)
+            if (transitionTimer < statsManager.delayBeforeButtonGoingRed)
             {
                 transitionTimer += Time.deltaTime;
                 return;
             }
 
-            // Start the color transition after 5 seconds
-            float transitionElapsed = transitionTimer - 5f;
-            float t = Mathf.Clamp01(transitionElapsed / transitionDuration); // Normalized time (0 to 1)
-            image.color = Color.Lerp(startColour, endColour, t); // Interpolate between start and end colors
+            // Start the color transition after a delay
+            float transitionElapsed = transitionTimer - statsManager.delayBeforeButtonGoingRed;
+            float timer = Mathf.Clamp01(transitionElapsed / transitionDuration); // Normalized time (0 to 1)
+            image.color = Color.Lerp(startColour, endColour, timer); // Interpolate between start and end colors
 
             // Stop transitioning when the duration is reached
-            if (t >= 1f)
+            if (timer >= 1f)
             {
                 isTransitioning = false;
             }

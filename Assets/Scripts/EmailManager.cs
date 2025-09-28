@@ -70,19 +70,29 @@ public class EmailManager : MonoBehaviour
     // Called when the player clicks an incorrect button
     public void IncorrectButtonClick()
     {
-        buttonsClicked++;
-        incorrectButtonsClicked++;
-        csatScore -= statsManager.subtractCSATAmount;
 
-        // Add negative SFX here
-
-
-        //incorrectButtonsClickedText.text = "Incorrect Buttons Clicked = " + incorrectButtonsClicked.ToString();
+        // Chance to ignore deduction of CSAT
+        if (statsManager.chanceToIngoreIncorrectResponseEffect < Random.Range(0f, 1f))
+        {
+            csatScore -= statsManager.subtractCSATAmount;
+            buttonsClicked++;
+            incorrectButtonsClicked++;
+            // Add negative SFX here
+        }
+        else
+        {
+            // Add lucky dodge SFX here
+        }
     }
 
     // Called when the player clicks the "Send Email" button
     public void SendEmailClicked()
     {
+        if (buttonsClicked == 0)
+        {
+            return;
+        }
+
         pauseTimer = true;
         statsManager.emailsSent++;
 
@@ -90,8 +100,7 @@ public class EmailManager : MonoBehaviour
         csatScore -= (emailTimer / statsManager.subtractCSATInterval);
         if (csatScore < 0) csatScore = 0;
 
-        Debug.Log("Email Sent Successfully!");
-        Debug.Log("Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
+        Debug.Log("Email Sent Successfully! Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
 
         // Add dosh based on performance (negative + bad csat if incorrect/not all correct buttons clicked)
         if (incorrectButtonsClicked == 0 && buttonsClicked >= totalCorrectButtons)
@@ -99,20 +108,12 @@ public class EmailManager : MonoBehaviour
             // pay base dosh rate
             statsManager.AddDosh();
 
-            // Update Manager vibe
-
-
             // Add positive SFX
         }
         else
         {
             // Subtract dosh by base pay rate
             statsManager.SubtractDosh();
-
-            Debug.Log("Email sent with Errors. Payment docked.");
-
-            // Update Manager vibe
-
 
             // add negative SFX
         }
@@ -138,7 +139,9 @@ public class EmailManager : MonoBehaviour
         {
             emailTimer += deltaTime;
             if (timeTakenText != null)
+            {
                 timeTakenText.text = "Time taken (sec) = " + Mathf.FloorToInt(emailTimer).ToString();
+            }
         }
     }
 }

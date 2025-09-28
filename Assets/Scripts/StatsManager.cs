@@ -63,6 +63,12 @@ public class StatsManager : MonoBehaviour
     [Tooltip("Deduct CSAT at this interval (seconds).")]
     public float subtractCSATInterval = 3f;
 
+    [Header("Emails")]
+    [Tooltip("Delay before incorrect buttons start turning red.")]
+    public float delayBeforeButtonGoingRed = 5f;
+
+    [Tooltip("% Chance (0-1) to ignore the bad effect of clicking an incorrect response email button.")]
+    public float chanceToIngoreIncorrectResponseEffect = 0f;
 
     [HideInInspector]
     public int emailsSent = 0;
