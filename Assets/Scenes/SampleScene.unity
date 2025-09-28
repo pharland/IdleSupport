@@ -1458,10 +1458,10 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Due to your continued poor performance, you have been placed on a mandatory
-    Performance Improvement Plan. Your manager has sent you the requirements you
+    PERFORMANCE IMPROVEMENT PLAN. Your manager has sent you the requirements you
     need to meet within the alotted time period. Failure to meet these requirements
-    will result in further disciplinary action, up to and including immediate dismissal
-    with no pay.
+    will result in further disciplinary action, up to and including IMMEDIATE DISMISSAL
+    with NO PAY.
 
     Your compliance is non-negotiable and the plan has already
     been signed on your behalf.
@@ -1475,7 +1475,7 @@ MonoBehaviour:
 
     As we cannot employ
     staff that continue to underperform, we have made the decision that your employment
-    with us has been terminated, effective immediately.
+    with us has been TERMINATED, effective immediately.
 
 
     Security will show
@@ -3455,7 +3455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -3463,7 +3463,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3503,7 +3503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4460,7 +4460,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1079986384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5776,7 +5776,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5784,7 +5784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5824,11 +5824,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -54.0144
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5877,7 +5877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -5885,7 +5885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -5925,11 +5925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -54.0144
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -6286,7 +6286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -6294,7 +6294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -6334,7 +6334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6512,7 +6512,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1507407220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7341,7 +7341,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7349,7 +7349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7389,11 +7389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -27.0072
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7734,7 +7734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.x
@@ -7742,7 +7742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_SizeDelta.x
@@ -7782,11 +7782,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 251.1173
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -27.0072
       objectReference: {fileID: 0}
     - target: {fileID: 4310480726203945619, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8035,7 +8035,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Manager Vibe: '
+  m_text: 'Manager''s Vibe: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8397,6 +8397,18 @@ PrefabInstance:
     - target: {fileID: 6830668373835311442, guid: 43462128bdfbc7d409eba8510ba72b67, type: 3}
       propertyPath: m_Name
       value: Current_Email_TEMPLATE
+      objectReference: {fileID: 0}
+    - target: {fileID: 7902571588777401176, guid: 43462128bdfbc7d409eba8510ba72b67, type: 3}
+      propertyPath: m_text
+      value: "Hi {currentUser.firstName},\r\n\r\nWelcome to your first day at Nanosoft.
+        Your job is to respond to customer support emails. \n\nTo respond to emails,
+        click all CORRECT (green) buttons then hit Send.\nINCORRECT buttons lower
+        ACCURACY, and take TIME to work out (slowly turn red).\n\nResponsibilities:\n1.
+        Avoid incorrect buttons and respond quickly to get a higher Customer Satisfaction
+        (CSAT) score and increased remuneration (more DOSH).\n2. High CSAT improves
+        your Manager's VIBE\n3. Responding to 0 emails in a day will severely decrease
+        your manager's VIBE.\r\n\nYou will be fired if your Manager is upset too
+        many days in a row.\n\r\nPlease acknowledge your duties below. \r\n\r\nRegards,\r\nManagement\r\n---------------------------------------------------------"
       objectReference: {fileID: 0}
     - target: {fileID: 9138883094471949257, guid: 43462128bdfbc7d409eba8510ba72b67, type: 3}
       propertyPath: m_Pivot.x
