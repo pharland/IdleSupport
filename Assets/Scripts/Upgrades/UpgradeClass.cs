@@ -21,9 +21,9 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public float upgradeEffectiveness = 1f;
 
     [Header("Info")]
-    [SerializeField] private string upgradeLockedName = "NOT UNLOCKED";
-    [SerializeField] private string upgradeUnlockedName = "NAME GOES HERE";
-    [SerializeField] private string upgradeTooltipText = "TOOLTIP GOES HERE.";
+    public string upgradeLockedName = "NOT UNLOCKED";
+    public string upgradeUnlockedName = "NAME GOES HERE";
+    public string upgradeTooltipText = "TOOLTIP GOES HERE.";
 
     [Header("UI References")]
     public GameObject buyButton;
@@ -31,7 +31,9 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     [SerializeField] private GameObject upgradeNameText;
     [SerializeField] private GameObject upgradeLevelText;
     [SerializeField] private GameObject upgradeTooltip;
-
+    [SerializeField] private GameObject upgradeEffect;
+    private IUpgradeBehaviour upgradeEffectScript;
+    
     [Header("Audio")]
     public AudioClip upgradeSound;
     public AudioClip maxLevelUpgradeSound;
@@ -58,6 +60,11 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         else
         {
             LockUpgrade();
+        }
+
+        if (upgradeEffect != null)
+        {
+            upgradeEffectScript = upgradeEffect.GetComponent<IUpgradeBehaviour>();
         }
     }
 
@@ -198,9 +205,14 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
                 }
             }
 
-            ActivateUpgrade();
-            toggleUpgrade.GetComponent<Toggle>().isOn = true;
-            toggleUpgrade.GetComponent<Toggle>().interactable = true;
+            if (upgradeLevel > 1)
+            {
+                IncreaseUpgradeLevel();
+            }
+            else { 
+                toggleUpgrade.GetComponent<Toggle>().isOn = true;
+                toggleUpgrade.GetComponent<Toggle>().interactable = true;
+            }
         }
         else
         {
@@ -213,14 +225,38 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void ActivateUpgrade()
     {
-        // Implement the effect of the upgrade here.
-        Debug.Log(upgradeUnlockedName + " activated.");
+        if (upgradeEffectScript != null)
+        {
+            upgradeEffectScript.ActivateUpgrade();
+        }
+        else
+        {
+            Debug.LogWarning("No IUpgradeEffect script found on upgradeEffect GameObject.");
+        }
     }
 
-    public void DeactivateUpgrade()
+    public virtual void DeactivateUpgrade()
     {
-        // Implement the deactivation of the upgrade effect here.
-        Debug.Log(upgradeUnlockedName + " deactivated.");
+        if (upgradeEffectScript != null)
+        {
+            upgradeEffectScript.DeactivateUpgrade();
+        }
+        else
+        {
+            Debug.LogWarning("No IUpgradeEffect script found on upgradeEffect GameObject.");
+        }
+    }
+
+    public void IncreaseUpgradeLevel()
+    {
+        if (upgradeEffectScript != null)
+        {
+            upgradeEffectScript.IncreaseUpgradeLevel();
+        }
+        else
+        {
+            Debug.LogWarning("No IUpgradeEffect script found on upgradeEffect GameObject.");
+        }
     }
 
     // Toggle the upgrade effect on or off depending on whether the toggleUpgrade is on or off
