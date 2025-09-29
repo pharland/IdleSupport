@@ -848,7 +848,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0021773, y: -152}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 110.6, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &154552027
 MonoBehaviour:
@@ -3397,7 +3397,7 @@ PrefabInstance:
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: baseUpgradeCost
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
@@ -3405,7 +3405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: nextUpgradeCost
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -3418,7 +3418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeCostMultiplier
-      value: 2
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3832,8 +3832,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: baseUpgradeCost
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: nextUpgradeCost
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -3843,6 +3851,10 @@ PrefabInstance:
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeUnlockedName
       value: GoFundMe
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeCostMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6030,7 +6042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Find a new job
+  m_text: Whatever...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6307,7 +6319,7 @@ PrefabInstance:
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: baseUpgradeCost
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
@@ -6315,7 +6327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: nextUpgradeCost
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -6325,6 +6337,10 @@ PrefabInstance:
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeUnlockedName
       value: Glaze Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeCostMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6761,6 +6777,10 @@ PrefabInstance:
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeUnlockedName
       value: Technical Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeCostMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8107,7 +8127,7 @@ PrefabInstance:
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: baseUpgradeCost
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
@@ -8115,7 +8135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: nextUpgradeCost
-      value: 20
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -8125,6 +8145,10 @@ PrefabInstance:
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeUnlockedName
       value: Weekly Bonus
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeCostMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8380,7 +8404,7 @@ PrefabInstance:
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: baseUpgradeCost
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
@@ -8388,7 +8412,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: nextUpgradeCost
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -8397,6 +8421,10 @@ PrefabInstance:
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeUnlockedName
       value: Communication Skill
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
+      propertyPath: upgradeCostMultiplier
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8658,7 +8686,7 @@ PrefabInstance:
       objectReference: {fileID: 1919460657}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: baseUpgradeCost
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: maxUpgradeLevel
@@ -8666,7 +8694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: nextUpgradeCost
-      value: 50
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeTooltipText
@@ -8679,7 +8707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7436616385345509282, guid: 134fade936505104daaaefb3cd98dfa2, type: 3}
       propertyPath: upgradeCostMultiplier
-      value: 1.5
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
