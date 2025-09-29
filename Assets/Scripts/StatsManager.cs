@@ -72,6 +72,8 @@ public class StatsManager : MonoBehaviour
     [Tooltip("Modifies dosh lost.")]
     public float doshNegativeModifier = 1f;
 
+    [Tooltip("Passive dosh earned per second from upgrades.")]
+    public float passiveDoshPerSecond = 0f;
 
     [Header("CSAT Settings")]
     [Tooltip("Deduct this amount of CSAT for every interval.")]
@@ -103,6 +105,7 @@ public class StatsManager : MonoBehaviour
     private GameObject firedPanel; // UI panel to show when fired
 
     EmailUIManager emailUIManager; // Cached reference to EmailUIManager
+    private float passiveDoshTimer; // Timer for passive dosh accumulation
 
     private void Awake()
     {
@@ -123,6 +126,20 @@ public class StatsManager : MonoBehaviour
         if (!isFired && isFirstEmailSent)
         {
             IncrementDay();
+        }
+
+        // passive dosh from upgrades
+        if (passiveDoshPerSecond > 0f)
+        {
+            passiveDoshTimer += Time.deltaTime;
+            if (passiveDoshTimer >= 1f)
+            {
+                int secondsPassed = Mathf.FloorToInt(passiveDoshTimer);
+                float doshToAdd = passiveDoshPerSecond * secondsPassed;
+                totalDosh += doshToAdd;
+                UpdateDoshUI();
+                passiveDoshTimer -= secondsPassed;
+            }
         }
     }
 

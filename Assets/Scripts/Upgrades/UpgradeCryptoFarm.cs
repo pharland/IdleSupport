@@ -1,16 +1,30 @@
 using UnityEngine;
 
-public class UpgradeCryptoFarm : MonoBehaviour
+/// <summary>
+/// This upgrade gives passive Dosh over time
+/// </summary>
+public class UpgradeCryptoFarm : MonoBehaviour, IUpgradeBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    StatsManager statsManager;
+
+    private void Awake()
     {
-        
+        statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ActivateUpgrade()
     {
-        
+        statsManager.passiveDoshPerSecond += 1f;
+    }
+
+    public void DeactivateUpgrade()
+    {
+        statsManager.passiveDoshPerSecond = 0f;
+
+    }
+
+    public void IncreaseUpgradeLevel()
+    {
+        statsManager.passiveDoshPerSecond += 1f;
     }
 }
