@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class StatsManager : MonoBehaviour
 {
@@ -161,7 +162,7 @@ public class StatsManager : MonoBehaviour
             dayTimer = 0f;
 
             // get a list of all GameObjects with the "Upgrade" tag and get their UpgradeClass component
-            GameObject[] upgradeObjects = GameObject.FindGameObjectsWithTag("Upgrade");
+            GameObject[] upgradeObjects = FindGameObjectsWithTagIncludingInactive("Upgrade");
 
             // loop through each upgrade GameObject and call UnlockUpgrade() if the required day is met
             foreach (GameObject upgradeObject in upgradeObjects)
@@ -382,5 +383,13 @@ public class StatsManager : MonoBehaviour
     {
         timePausedText.gameObject.SetActive(false);
         timersPaused = false;
+    }
+
+    // Find all GameObjects with a specific tag, including inactive ones
+    private static GameObject[] FindGameObjectsWithTagIncludingInactive(string tag)
+    {
+        return Resources.FindObjectsOfTypeAll<GameObject>()
+            .Where(go => go.CompareTag(tag) && (go.hideFlags == HideFlags.None) && go.scene.IsValid())
+            .ToArray();
     }
 }
