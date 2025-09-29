@@ -30,7 +30,7 @@ public class IncorrectButton : MonoBehaviour
     void Update()
     {
         // Handle color transition with 5 seconds delay before starting
-        if (image != null && isTransitioning)
+        if (image != null && isTransitioning && !statsManager.timersPaused)
         {
             // Wait before starting the transition
             if (transitionTimer < statsManager.delayBeforeButtonGoingRed)

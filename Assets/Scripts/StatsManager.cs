@@ -90,6 +90,9 @@ public class StatsManager : MonoBehaviour
     [Tooltip("% Chance (0-1) to ignore the bad effect of clicking an incorrect response email button.")]
     public float chanceToIngoreIncorrectResponseEffect = 0f;
 
+    [Tooltip("If true, timers (CSAT decrease, button going red) are paused.")]
+    public bool timersPaused = false;
+
     [HideInInspector]
     public int emailsSent = 0;
     [HideInInspector]
@@ -123,13 +126,13 @@ public class StatsManager : MonoBehaviour
 
     void Update()
     {
-        if (!isFired && isFirstEmailSent)
+        if (!isFired && isFirstEmailSent && !timersPaused)
         {
             IncrementDay();
         }
 
         // passive dosh from upgrades
-        if (passiveDoshPerSecond > 0f)
+        if (passiveDoshPerSecond > 0f && !timersPaused)
         {
             passiveDoshTimer += Time.deltaTime;
             if (passiveDoshTimer >= 1f)
@@ -344,7 +347,6 @@ public class StatsManager : MonoBehaviour
             averageCSAT = 0f;
         }
         managerVibe = Mathf.Clamp01(averageCSAT / 100f);
-        managerVibe = 1f; //REMOVE AFTER FINISHED TESTING!!!!!!
 
         // Update slider bar and colour based on vibe thresholds
         if (managerVibeSlider != null)
@@ -364,5 +366,15 @@ public class StatsManager : MonoBehaviour
                 managerVibeBar.color = Color.red;
             }
         }
+    }
+
+    public void PauseTimers()
+    {
+        timersPaused = true;
+    }
+
+    public void ResumeTimers()
+    {
+        timersPaused = false;
     }
 }

@@ -148,7 +148,7 @@ public class EmailUIManager : MonoBehaviour
 
     void Update()
     {
-        if (statsManager.isFired || !statsManager.isFirstEmailSent) return;
+        if (statsManager.isFired || !statsManager.isFirstEmailSent || statsManager.timersPaused) return;
 
         // Automatic email spawning
         emailSpawnTimer += Time.deltaTime;
