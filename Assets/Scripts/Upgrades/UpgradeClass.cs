@@ -12,12 +12,13 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public bool isPermanent = false;
     public bool isUnlocked = false;
     public int daysToUnlock = 0;
-    [SerializeField] private int upgradeLevel = 0;
+    public int upgradeLevel = 0;
     public int maxUpgradeLevel = 1;
     public bool isEnabled = false;
 
     [Header("Cost")]
-    [SerializeField] private float upgradeCost = 10f;
+    public float baseUpgradeCost = 10f;
+    public float nextUpgradeCost = 10f;
     [SerializeField] private string upgradeCostLocked = "???";
     public float upgradeCostMultiplier = 1.5f;
 
@@ -104,6 +105,15 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
     }
 
+    // Update the upgrade level text to show current level and max level
+    public void UpdateUpgradeLevelText()
+    {
+        if (upgradeLevelText != null)
+        {
+            upgradeLevelText.GetComponent<TextMeshProUGUI>().text = "LV: " + upgradeLevel.ToString() + "/" + maxUpgradeLevel;
+        }
+    }
+
     public void UnlockUpgrade()
     {
         isUnlocked = true;
@@ -111,7 +121,7 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         // Enable the buyButton button and unobfuscate the cost text
         if (buyButton != null)
         {
-            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = upgradeCost.ToString();
+            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = nextUpgradeCost.ToString();
             buyButton.GetComponent<Button>().interactable = true;
         }
 
@@ -122,10 +132,7 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
 
         // Unobfuscate the upgrade level text
-        if (upgradeLevelText != null)
-        {
-            upgradeLevelText.GetComponent<TextMeshProUGUI>().text = "LV: " + upgradeLevel.ToString() + "/" + maxUpgradeLevel;
-        }
+        UpdateUpgradeLevelText();
     }
 
     public void LockUpgrade()
@@ -160,10 +167,10 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void PurchaseUpgrade()
     {
-        if (statsManager.totalDosh >= upgradeCost)
+        if (statsManager.totalDosh >= nextUpgradeCost)
         {
             // Deduct the cost from the player's money
-            statsManager.totalDosh -= upgradeCost;
+            statsManager.totalDosh -= nextUpgradeCost;
             statsManager.UpdateDoshUI();
 
             // Increase the upgrade level
@@ -192,12 +199,12 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             else
             {
                 // Update the cost for the next level, rounded up to nearest whole number
-                upgradeCost = Mathf.Ceil(upgradeCost * upgradeCostMultiplier);
+                nextUpgradeCost = Mathf.Ceil(nextUpgradeCost * upgradeCostMultiplier);
 
                 // Update the buyButton text to show new cost
                 if (buyButton != null)
                 {
-                    buyButton.GetComponentInChildren<TextMeshProUGUI>().text = upgradeCost.ToString();
+                    buyButton.GetComponentInChildren<TextMeshProUGUI>().text = nextUpgradeCost.ToString();
                 }
 
                 // Update the upgrade level text
@@ -212,9 +219,8 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 IncreaseUpgradeLevel();
             }
-            else { 
-                toggleUpgrade.GetComponent<Toggle>().isOn = true;
-                toggleUpgrade.GetComponent<Toggle>().interactable = true;
+            else {
+                ToggleCheckbox();
             }
         }
         else
@@ -240,6 +246,7 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public virtual void DeactivateUpgrade()
     {
+        isEnabled = false;
         if (upgradeEffectScript != null)
         {
             upgradeEffectScript.DeactivateUpgrade();
@@ -274,6 +281,14 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             isEnabled = false;
             DeactivateUpgrade();
+        }
+    }
+
+    public void ToggleCheckbox()
+    {
+        if (toggleUpgrade != null)
+        {
+            toggleUpgrade.GetComponent<Toggle>().isOn = !toggleUpgrade.GetComponent<Toggle>().isOn;
         }
     }
 }

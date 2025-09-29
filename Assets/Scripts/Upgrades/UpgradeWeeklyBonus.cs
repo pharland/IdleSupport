@@ -6,7 +6,7 @@ using UnityEngine;
 public class UpgradeWeeklyBonus : MonoBehaviour, IUpgradeBehaviour
 {
     StatsManager statsManager;
-    private int upgradeLevel = 0;
+    public int upgradeLevel = 0;
 
     public void Awake()
     {
@@ -16,7 +16,10 @@ public class UpgradeWeeklyBonus : MonoBehaviour, IUpgradeBehaviour
     public void ActivateUpgrade()
     {
         statsManager.isWeeklyBonusActive = true;
-        upgradeLevel++;
+        if (upgradeLevel == 0)
+        {
+            upgradeLevel++;
+        }
     }
 
     public void DeactivateUpgrade()

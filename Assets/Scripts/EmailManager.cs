@@ -10,8 +10,9 @@ public class EmailManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI correctButtonsClickedText;
     [SerializeField] private TextMeshProUGUI incorrectButtonsClickedText;
     [SerializeField] private TextMeshProUGUI timeTakenText;
+    [SerializeField] private TextMeshProUGUI companyNameText;
+    public string[] companyNameOptions; // Options for random company names
     public string emailTitle = "New Email"; // Title shown on the button that selects the Current Email
-
     public float csatScore = 100f;
     public bool isFirstEmail = false; // only true for the very first email of the game
 
@@ -35,8 +36,17 @@ public class EmailManager : MonoBehaviour
         statsManager = GameObject.Find("StatsManager").GetComponent<StatsManager>();
         totalCorrectButtons = GameObject.FindGameObjectsWithTag("Correct").Length;
         totalIncorrectButtons = GameObject.FindGameObjectsWithTag("Incorrect").Length;
-
-        //totalButtons = totalCorrectButtons + totalIncorrectButtons;
+        
+        //set company name to random option from array
+        if (companyNameText != null && companyNameOptions.Length > 0)
+        {
+            int randomIndex = Random.Range(0, companyNameOptions.Length);
+            companyNameText.text = companyNameOptions[randomIndex];
+        }
+        else if (companyNameText != null)
+        {
+            companyNameText.text = "Company";
+        }
     }
 
     void OnEnable()
@@ -99,8 +109,6 @@ public class EmailManager : MonoBehaviour
         // Deduct CSAT based on time taken (10% for every 3 seconds)
         csatScore -= (emailTimer / statsManager.subtractCSATInterval);
         if (csatScore < 0) csatScore = 0;
-
-        Debug.Log("Email Sent Successfully! Email Timer: " + emailTimer.ToString() + " seconds. CSAT = " + csatScore + "%");
 
         // Add dosh based on performance (negative + bad csat if incorrect/not all correct buttons clicked)
         if (incorrectButtonsClicked == 0 && buttonsClicked >= totalCorrectButtons)

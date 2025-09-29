@@ -122,9 +122,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8702906348648029529, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: "Nanosoft Support,\n\nThe quarterly reports that get sent to me and
-        the Leadership team do not match up, AGAIN. \r\nFix immediately or expect
-        us to look for other vendors.\n\r\nJJ O'Smithy\nAmazonian\r\n---------------------------------------------------------"
+      value: "Support,\n\nThe quarterly reports that get sent to me and the Leadership
+        team do not match up, AGAIN. \r\nFix immediately or expect us to look for
+        other vendors.\n\r\nJJ O'Smithy\nAmazonian\r\n---------------------------------------------------------"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

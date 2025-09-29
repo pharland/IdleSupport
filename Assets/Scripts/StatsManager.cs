@@ -102,6 +102,8 @@ public class StatsManager : MonoBehaviour
 
     private GameObject firedPanel; // UI panel to show when fired
 
+    EmailUIManager emailUIManager; // Cached reference to EmailUIManager
+
     private void Awake()
     {
         // initialise fired UI panel and set it to inactive by default
@@ -205,6 +207,66 @@ public class StatsManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Reset stats and upgrades for a new job
+    /// </summary>
+    public void NewJob()
+    {
+        //reset all relevant stats
+        isFired = false;
+        firedPanel.SetActive(false);
+        daysEmployed = 0;
+        daysEmployedText.text = daysEmployed.ToString();
+        managerVibe = 0.8f;
+        if (managerVibeSlider != null)
+        {
+            managerVibeSlider.value = managerVibe;
+            managerVibeBar.color = Color.yellow;
+        }
+        daysManagerHappy = 0;
+        daysManagerUpset = 0;
+        averageCSAT = 0f;
+        emailsSent = 0;
+        emailsSentToday = 0;
+        dayTimer = 0f;
+
+        // deactivate all non-permanent upgrades, reset levels to 0 and cost to base cost
+        GameObject[] upgradeObjects = GameObject.FindGameObjectsWithTag("Upgrade");
+        foreach (GameObject upgradeObject in upgradeObjects)
+        {
+            UpgradeClass upgrade = upgradeObject.GetComponent<UpgradeClass>();
+            if (upgrade != null && !upgrade.isPermanent && upgrade.isUnlocked)
+            {
+                upgrade.DeactivateUpgrade();
+                upgrade.toggleUpgrade.GetComponent<Toggle>().isOn = false;
+                upgrade.upgradeLevel = 0;
+                upgrade.nextUpgradeCost = upgrade.baseUpgradeCost;
+                upgrade.buyButton.GetComponentInChildren<TextMeshProUGUI>().text = upgrade.nextUpgradeCost.ToString();
+                if (upgrade.daysToUnlock > 0)
+                {
+                    upgrade.LockUpgrade();
+                }
+                else
+                {
+                    upgrade.UpdateUpgradeLevelText();
+                }
+            }
+        }
+
+        // Delete all existing emails and spawn the first day email
+        emailUIManager = GameObject.Find("EmailListManager").GetComponent<EmailUIManager>();
+        if (emailUIManager != null)
+        {
+            emailUIManager.DeleteAllEmails();
+            emailUIManager.SpawnNewEmail("First Day Email", emailUIManager.firstDayEmail);
+            isFirstEmailSent = false;
+        }
+        else
+        {
+            Debug.LogError("EmailListManager not found in scene!");
+        }
+    }
+
+    /// <summary>
     /// Adds dosh (base * modifier) when an email is sent
     /// </summary>
     public void AddDosh()
@@ -212,7 +274,6 @@ public class StatsManager : MonoBehaviour
         var doshToAdd = Mathf.Round(baseDoshPerEmail * doshModifier * 100f) / 100f;
         totalDosh += doshToAdd;
         UpdateDoshUI();
-        Debug.Log("WEEKLY BONUS DOSH ADDED!" + doshToAdd.ToString());
     }
 
     /// <summary>
@@ -223,7 +284,6 @@ public class StatsManager : MonoBehaviour
         var doshToAdd = Mathf.Round(bonusDoshPerWeek * bonusDoshPerWeekModifier * 100f) / 100f;
         totalDosh += doshToAdd;
         UpdateDoshUI();
-        Debug.Log("WEEKLY BONUS DOSH ADDED!" + doshToAdd.ToString());
     }
 
     /// <summary>

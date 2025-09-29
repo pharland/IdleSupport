@@ -12,6 +12,9 @@ public class EmailUIManager : MonoBehaviour
     public GameObject buttonPrefab;
 
     [Header("Email Spawning")]
+    [Tooltip("The first email to be sent at the start of each run")]
+    public GameObject firstDayEmail;
+
     [Tooltip("Prefab for current email")]
     public GameObject currentEmailPrefab;
 
@@ -167,13 +170,38 @@ public class EmailUIManager : MonoBehaviour
         }
     }
 
+    // Delete all emails and their associated buttons
+    public void DeleteAllEmails()
+    {
+        // Destroy all email GameObjects
+        foreach (EmailManager email in allEmails)
+        {
+            if (email != null)
+            {
+                Destroy(email.gameObject);
+            }
+        }
+        allEmails.Clear();
+        activeEmail = null;
+        
+        // Destroy all button GameObjects
+        foreach (KeyValuePair<EmailManager, GameObject> kv in map)
+        {
+            if (kv.Value != null)
+            {
+                Destroy(kv.Value);
+            }
+        }
+        map.Clear();
+    }
+
     // Spawns a new email from the currentEmailPrefab as a child of emailContainerParent
-    public EmailManager SpawnNewEmail(string emailTitle = "New Email")
+    public EmailManager SpawnNewEmail(string emailTitle = "New Email", GameObject firstDayEmail = null)
     {
         if (emailContainerParent != null)
         {
             // Randomly select an email prefab from the array if available
-            if (emailPrefabs != null && emailPrefabs.Length > 0)
+            if (emailPrefabs != null && emailPrefabs.Length > 0 && firstDayEmail == null)
             {
                 int randomIndex;
                 if (emailPrefabs.Length == 1)
@@ -189,6 +217,10 @@ public class EmailUIManager : MonoBehaviour
                 }
                 lastEmailPrefabIndex = randomIndex;
                 currentEmailPrefab = emailPrefabs[randomIndex];
+            }
+            else if (firstDayEmail != null)
+            {
+                currentEmailPrefab = firstDayEmail;
             }
             else
             {

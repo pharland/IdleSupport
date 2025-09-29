@@ -20,6 +20,54 @@ PrefabInstance:
       propertyPath: isFirstEmail
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: companyNameText
+      value: 
+      objectReference: {fileID: 37527521066290751}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: companyNameOptions.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[0]'
+      value: Microsfter
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[1]'
+      value: Amazoff
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[2]'
+      value: Faceplant
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[3]'
+      value: Netflocks
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[4]'
+      value: Twiddler
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[5]'
+      value: Oracool
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[6]'
+      value: MehtaVerse
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[7]'
+      value: TikTanked
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[8]'
+      value: Sunflare
+      objectReference: {fileID: 0}
+    - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: 'companyNameOptions.Array.data[9]'
+      value: Bezosphere
+      objectReference: {fileID: 0}
     - target: {fileID: 1578563207859439678, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
       value: Nanosoft
@@ -146,20 +194,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8702906348648029529, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
-      value: "Hi {currentUser.firstName},\r\n\r\nWelcome to your first day at Nanosoft.\r\nWe
-        need you to hit the ground running ASAP. so this email will act as a tutorial
-        for how to do your job: respond to customer support emails with SPEED and
-        ACCURACY to get a higher Customer Satisfaction (CSAT) score and increased
-        remuneration (more DOSH). \r\nConsistently impress your line manager (VIBE)
-        and receive a generous, competitive, and market rate-adjusted BONUS. Note:
-        Nanosoft are not required to adjust for cost of living increases. Responding
-        to 0 emails in a day will result in severely decreasing your manager's VIBE.\r\n\r\nTo
-        respond to emails, click the CORRECT (green) buttons then hit Send. INCORRECT
-        buttons take TIME to work out (slowly turn red). Please acknowledge your
-        duties below. \r\n\r\nWe hope you continue to uphold Nanosoft's reputation
-        as a Top Right Quadrant company. \r\nNote: Employees who tarnish our core
-        values of SPEED and ACCURACY will be disciplined, including (but not limited
-        to) pay docking or immediate dismissal with no pay.\r\n\r\nRegards,\r\nManagement\r\n---------------------------------------------------------"
+      value: "Hi {currentUser.firstName},\n\nWelcome to your first day. Your job
+        is to respond to customer support emails. \n\nTo respond to emails, click
+        all CORRECT (green) buttons then hit Send.\nINCORRECT buttons lower ACCURACY,
+        and take TIME to work out (slowly turn red).\n\nResponsibilities:\n1. Avoid
+        incorrect buttons and respond quickly to get a higher Customer Satisfaction
+        (CSAT) score and increased remuneration (more DOSH).\n2. High CSAT improves
+        your Manager's VIBE\n3. Responding to 0 emails in a day will severely decrease
+        your manager's VIBE.\n\nYou will be fired if your Manager is upset too many
+        days in a row.\n\nPlease acknowledge your duties below. \n\nRegards,\nManagement\n---------------------------------------------------------"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -169,3 +212,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+--- !u!114 &37527521066290751 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1578563207859439678, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+  m_PrefabInstance: {fileID: 1544028559591572993}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
