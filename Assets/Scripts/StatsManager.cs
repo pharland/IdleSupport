@@ -96,7 +96,7 @@ public class StatsManager : MonoBehaviour
 
 
     private int emailsSentToday = 0; // Sends 0%CSAT fake email if still 0 at end of day. Resets to 0 at day start. 
-    private int daysEmployed = 0;
+    public int daysEmployed = 0;
     private float dayTimer = 0f; // ticks every second
     private float averageCSAT = 0f; // updated after each email is sent, affects manager vibe
 
@@ -264,6 +264,17 @@ public class StatsManager : MonoBehaviour
         {
             Debug.LogError("EmailListManager not found in scene!");
         }
+    }
+
+    /// <summary>
+    /// Award payout based on days employed when player prestiges
+    /// </summary>
+    /// <param name="payoutPerDay"></param>
+    public void PrestigePayout(float payoutPerDay)
+    {
+        float payout = daysEmployed * payoutPerDay;
+        totalDosh += payout;
+        UpdateDoshUI();
     }
 
     /// <summary>
