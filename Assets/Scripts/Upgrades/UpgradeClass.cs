@@ -219,9 +219,9 @@ public class UpgradeClass : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             {
                 IncreaseUpgradeLevel();
             }
-            else {
-                ToggleCheckbox();
-            }
+
+            toggleUpgrade.GetComponent<Toggle>().isOn = true;
+            toggleUpgrade.GetComponent<Toggle>().interactable = true;
         }
         else
         {

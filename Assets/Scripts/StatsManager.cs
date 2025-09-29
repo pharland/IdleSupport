@@ -255,6 +255,7 @@ public class StatsManager : MonoBehaviour
             {
                 upgrade.DeactivateUpgrade();
                 upgrade.toggleUpgrade.GetComponent<Toggle>().isOn = false;
+                upgrade.toggleUpgrade.GetComponent<Toggle>().interactable = false;
                 upgrade.upgradeLevel = 0;
                 upgrade.nextUpgradeCost = upgrade.baseUpgradeCost;
                 upgrade.buyButton.GetComponentInChildren<TextMeshProUGUI>().text = upgrade.nextUpgradeCost.ToString();
