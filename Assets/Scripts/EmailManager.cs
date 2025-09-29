@@ -130,6 +130,7 @@ public class EmailManager : MonoBehaviour
         if (isFirstEmail)
         {
             statsManager.isFirstEmailSent = true;
+            statsManager.timePausedText.gameObject.SetActive(false);
         }
 
         statsManager.UpdateManagerVibe(csatScore);

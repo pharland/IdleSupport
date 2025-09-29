@@ -15,6 +15,9 @@ public class StatsManager : MonoBehaviour
     [Tooltip("How many seconds in real time is a day in game.")]
     [SerializeField] private float secondsPerDay;
 
+    [Tooltip("Text field displaying time paused.")]
+    public TextMeshProUGUI timePausedText;
+
 
     [Header("Manager Vibe")]
     [Tooltip("Current manager vibe, affects dosh earned/lost. Range of 0 to 1")]
@@ -222,6 +225,7 @@ public class StatsManager : MonoBehaviour
         //enabled FIRED screen ui and pause game
         firedPanel.SetActive(true);
         isFired = true;
+        timePausedText.gameObject.SetActive(true);
 
         // Play fired SFX here
     }
@@ -370,11 +374,13 @@ public class StatsManager : MonoBehaviour
 
     public void PauseTimers()
     {
+        timePausedText.gameObject.SetActive(true);
         timersPaused = true;
     }
 
     public void ResumeTimers()
     {
+        timePausedText.gameObject.SetActive(false);
         timersPaused = false;
     }
 }
