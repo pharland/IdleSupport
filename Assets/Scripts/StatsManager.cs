@@ -152,7 +152,9 @@ public class StatsManager : MonoBehaviour
         }
     }
 
-    // Increment days based on the timer
+    /// <summary>
+    /// Increment days based on the timer
+    /// </summary>
     private void IncrementDay()
     {
         dayTimer += Time.deltaTime;
@@ -238,6 +240,7 @@ public class StatsManager : MonoBehaviour
     /// </summary>
     public void NewJob()
     {
+        Debug.Log("Starting new job, resetting stats and upgrades.");
         //reset all relevant stats
         isFired = false;
         firedPanel.SetActive(false);
@@ -257,12 +260,13 @@ public class StatsManager : MonoBehaviour
         dayTimer = 0f;
 
         // deactivate all non-permanent upgrades, reset levels to 0 and cost to base cost
-        GameObject[] upgradeObjects = GameObject.FindGameObjectsWithTag("Upgrade");
+        GameObject[] upgradeObjects = FindGameObjectsWithTagIncludingInactive("Upgrade");
         foreach (GameObject upgradeObject in upgradeObjects)
         {
             UpgradeClass upgrade = upgradeObject.GetComponent<UpgradeClass>();
             if (upgrade != null && !upgrade.isPermanent && upgrade.isUnlocked)
             {
+                Debug.Log("Deactivating upgrade: " + upgrade.upgradeUnlockedName);
                 upgrade.DeactivateUpgrade();
                 upgrade.toggleUpgrade.GetComponent<Toggle>().isOn = false;
                 upgrade.toggleUpgrade.GetComponent<Toggle>().interactable = false;
@@ -272,10 +276,12 @@ public class StatsManager : MonoBehaviour
                 if (upgrade.daysToUnlock > 0)
                 {
                     upgrade.LockUpgrade();
+                    Debug.Log("Locking upgrade: " + upgrade.upgradeUnlockedName);
                 }
                 else
                 {
                     upgrade.UpdateUpgradeLevelText();
+                    Debug.Log("Resetting upgrade: " + upgrade.upgradeUnlockedName);
                 }
             }
         }
@@ -342,7 +348,10 @@ public class StatsManager : MonoBehaviour
         doshText.text = "$" + totalDosh.ToString("F2");
     }
 
-    // Update manager vibe based on average CSAT
+    /// <summary>
+    /// Update manager vibe based on average CSAT
+    /// </summary>
+    /// <param name="csatScore"></param>
     public void UpdateManagerVibe(float csatScore)
     {
         emailsSentToday++;
@@ -387,7 +396,11 @@ public class StatsManager : MonoBehaviour
         timersPaused = false;
     }
 
-    // Find all GameObjects with a specific tag, including inactive ones
+    /// <summary>
+    /// Find all GameObjects with a specific tag, including inactive ones
+    /// </summary>
+    /// <param name="tag"></param>
+    /// <returns></returns>
     private static GameObject[] FindGameObjectsWithTagIncludingInactive(string tag)
     {
         return Resources.FindObjectsOfTypeAll<GameObject>()

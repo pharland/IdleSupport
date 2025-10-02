@@ -34,5 +34,6 @@ public class Prestige : MonoBehaviour
     {
         statsManager.PrestigePayout(payoutPerDay);
         statsManager.NewJob();
+        Debug.Log("Prestige function called");
     }
 }
