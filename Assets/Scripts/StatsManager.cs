@@ -79,20 +79,22 @@ public class StatsManager : MonoBehaviour
     [Tooltip("Passive dosh earned per second from upgrades.")]
     public float passiveDoshPerSecond = 0f;
 
-    [Header("CSAT Settings")]
+
+    [Header("Emails and CSAT")]
+    [Tooltip("Delay before incorrect buttons start turning red.")]
+    public float delayBeforeButtonGoingRed = 5f;
+
+    [Tooltip("% Chance (0-1) to ignore the bad effect of clicking an incorrect response email button.")]
+    public float chanceToIngoreIncorrectResponseEffect = 0f;
+
     [Tooltip("Deduct this amount of CSAT for every interval.")]
     public float subtractCSATAmount = 10f;
 
     [Tooltip("Deduct CSAT at this interval (seconds).")]
     public float subtractCSATInterval = 3f;
 
-
-    [Header("Emails")]
-    [Tooltip("Delay before incorrect buttons start turning red.")]
-    public float delayBeforeButtonGoingRed = 5f;
-
-    [Tooltip("% Chance (0-1) to ignore the bad effect of clicking an incorrect response email button.")]
-    public float chanceToIngoreIncorrectResponseEffect = 0f;
+    [Tooltip("Deduct this amount of CSAT for every incorrect response button clicked.")]
+    public float incorrectResponseCSATPenalty = 30f;
 
     [Tooltip("If true, timers (CSAT decrease, button going red) are paused.")]
     public bool timersPaused = false;

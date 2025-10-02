@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class EmailUIManager : MonoBehaviour
 {
@@ -267,8 +268,10 @@ public class EmailUIManager : MonoBehaviour
         }
         csatToDisplay.text = "CSAT: " + csatScore.ToString() + "%";
 
-        // Reset alpha to fully visible
-        csatToDisplay.CrossFadeAlpha(1f, 0f, false);
+        // Set the alpha of the text and background to fully visible before fading
+        Color textColor = csatToDisplay.color;
+        textColor.a = 1f;
+        csatToDisplay.color = textColor; 
 
         // Make the text fade over time
         csatToDisplay.CrossFadeAlpha(0f, cSATFadeTimer, false);

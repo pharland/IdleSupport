@@ -190,19 +190,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8102880842108704776, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 18.1
+      value: 14.2
       objectReference: {fileID: 0}
     - target: {fileID: 8702906348648029529, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
       value: "Hi {currentUser.firstName},\n\nWelcome to your first day. Your job
-        is to respond to customer support emails. \n\nTo respond to emails, click
-        all CORRECT (green) buttons then hit Send.\nINCORRECT buttons lower ACCURACY,
-        and take TIME to work out (slowly turn red).\n\nResponsibilities:\n1. Avoid
-        incorrect buttons and respond quickly to get a higher Customer Satisfaction
-        (CSAT) score and increased remuneration (more DOSH).\n2. High CSAT improves
-        your Manager's VIBE\n3. Responding to 0 emails in a day will severely decrease
-        your manager's VIBE.\n\nYou will be fired if your Manager is upset too many
-        days in a row.\n\nPlease acknowledge your duties below. \n\nRegards,\nManagement\n---------------------------------------------------------"
+        is to respond to customer support emails. \n\nTo do this, click all CORRECT
+        (green) buttons then hit Send.\nINCORRECT buttons will dock your pay.\n---Buttons
+        will turn gren/red over time---\n\nResponsibilities:\n1. Avoid red buttons
+        and send quickly to get a high Customer Satisfaction (CSAT) score and increased
+        remuneration (more DOSH).\n2. High CSAT improves your Manager's VIBE\n3.
+        Responding to 0 emails in a day will severely lower your manager's VIBE.\n\nYou
+        will be fired if your Manager is upset too many days in a row.\n\nPlease
+        acknowledge your duties below. \n\nRegards,\nManagement\n---------------------------------------------------------"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

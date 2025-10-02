@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IncorrectButton : MonoBehaviour
+public class CorrectButton : MonoBehaviour
 {
     StatsManager statsManager;
 
     public Color startColour = new(0.85f, 0.85f, 0.85f, 1f); // light grey
-    public Color endColour = Color.red;
+    public Color endColour = Color.paleGreen;
     public float transitionDuration = 10f; // Duration of the color transition in seconds
 
     private Image image; // Reference to the Image component of the button

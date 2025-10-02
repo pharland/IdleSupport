@@ -4657,9 +4657,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 657380032}
     m_Modifications:
+    - target: {fileID: 4112686142837282174, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 70.9508
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112686142837282174, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 14.4797
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112686142837282174, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2355
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112686142837282174, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.476207
+      objectReference: {fileID: 0}
     - target: {fileID: 6523544786219492761, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
       propertyPath: m_Name
       value: DynamicText_CSAT_Score
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069624150278907821, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069624150278907821, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069624150278907821, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7069624150278907821, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8866537235156546570, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
       propertyPath: m_fontColor.a
@@ -4667,7 +4699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8866537235156546570, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 285186816
+      value: 419404544
       objectReference: {fileID: 0}
     - target: {fileID: 8934547839501344486, guid: 5d1cd15d7b3614542976c8bb92019f35, type: 3}
       propertyPath: m_Pivot.x
@@ -5290,8 +5322,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.77
-  m_fontSizeBase: 22.77
+  m_fontSize: 45.73
+  m_fontSizeBase: 45.73
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5358,8 +5390,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 63.162605}
-  m_SizeDelta: {x: 200, y: 32.9212}
+  m_AnchoredPosition: {x: 90.34476, y: 331.5628}
+  m_SizeDelta: {x: 366.8895, y: 51.8468}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1174879120
 GameObject:
@@ -6194,15 +6226,16 @@ MonoBehaviour:
   bonusDoshPerEmail: 2
   bonusDoshModifier: 1
   isWeeklyBonusActive: 0
-  bonusDoshPerWeek: 10
+  bonusDoshPerWeek: 20
   bonusDoshPerWeekModifier: 1
   subtractDoshAmount: 2
   doshNegativeModifier: 1
   passiveDoshPerSecond: 0
+  delayBeforeButtonGoingRed: 5
+  chanceToIngoreIncorrectResponseEffect: 0
   subtractCSATAmount: 10
   subtractCSATInterval: 3
-  delayBeforeButtonGoingRed: 5
-  chanceToIngoreIncorrectResponseEffect: 1
+  incorrectResponseCSATPenalty: 30
   timersPaused: 0
   emailsSent: 0
   isFired: 0
@@ -7382,7 +7415,7 @@ MonoBehaviour:
   - {fileID: 7817293300560911878, guid: 2bff6f82108f6e348b7e3435b34b6334, type: 3}
   goodCSATThreshold: 95
   badCSATThreshold: 80
-  cSATFadeTimer: 3
+  cSATFadeTimer: 5
 --- !u!1 &1657054549
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,18 +80,20 @@ public class EmailManager : MonoBehaviour
     // Called when the player clicks an incorrect button
     public void IncorrectButtonClick()
     {
-
         // Chance to ignore deduction of CSAT
-        if (statsManager.chanceToIngoreIncorrectResponseEffect < Random.Range(0f, 1f))
+        if (statsManager.chanceToIngoreIncorrectResponseEffect > 0f && statsManager.chanceToIngoreIncorrectResponseEffect >= Random.Range(0f, 1f))
         {
-            csatScore -= statsManager.subtractCSATAmount;
-            buttonsClicked++;
-            incorrectButtonsClicked++;
-            // Add negative SFX here
+            // Add lucky dodge SFX here
+
+            Debug.Log("Dodged CSAT deduction!");
         }
         else
         {
-            // Add lucky dodge SFX here
+            csatScore -= statsManager.incorrectResponseCSATPenalty;
+            buttonsClicked++;
+            incorrectButtonsClicked++;
+
+            // Add negative SFX here
         }
     }
 
@@ -120,8 +122,9 @@ public class EmailManager : MonoBehaviour
         }
         else
         {
-            // Subtract dosh by base pay rate
+            // Subtract dosh by base pay rate and apply severe CSAT penalty
             statsManager.SubtractDosh();
+            csatScore -= statsManager.incorrectResponseCSATPenalty*2;
 
             // add negative SFX
         }

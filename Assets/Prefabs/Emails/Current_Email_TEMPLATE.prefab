@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 8853033296175857390}
   - component: {fileID: 5361288000792804116}
   - component: {fileID: 1243692256413729868}
+  - component: {fileID: 5319056881390747986}
   m_Layer: 5
   m_Name: Button_Green1
   m_TagString: Correct
@@ -343,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5896226, g: 1, b: 0.60333866, a: 1}
+  m_Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -428,6 +429,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5319056881390747986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873918806935737023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
 --- !u!1 &1958849601890988071
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,6 +592,7 @@ GameObject:
   - component: {fileID: 8994765399857384300}
   - component: {fileID: 338294200533144429}
   - component: {fileID: 1652837026774914333}
+  - component: {fileID: 1230428798116511004}
   m_Layer: 5
   m_Name: Button_Green2
   m_TagString: Correct
@@ -624,7 +641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5896226, g: 1, b: 0.60333866, a: 1}
+  m_Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -709,6 +726,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1230428798116511004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490472445774668126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
 --- !u!1 &2551939345615564062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,6 +1560,8 @@ MonoBehaviour:
   correctButtonsClickedText: {fileID: 2533620907777209830}
   incorrectButtonsClickedText: {fileID: 2023287356616621046}
   timeTakenText: {fileID: 1710621695084293524}
+  companyNameText: {fileID: 0}
+  companyNameOptions: []
   emailTitle: New Email
   csatScore: 100
   isFirstEmail: 0
@@ -1592,7 +1626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5882353, g: 1, b: 0.6039216, a: 1}
+  m_Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1688,11 +1722,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ba7079785941fc4a8fb9d7b0ee1ee59, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  startColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  m_EditorClassIdentifier: Assembly-CSharp::IncorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
   endColour: {r: 1, g: 0, b: 0, a: 1}
   transitionDuration: 10
-  delayBeforeStart: 5
 --- !u!1 &6308981681408231725
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,6 +2012,7 @@ GameObject:
   - component: {fileID: 7335121164432848455}
   - component: {fileID: 858613517604791455}
   - component: {fileID: 5580772421344378645}
+  - component: {fileID: 5225621750877537560}
   m_Layer: 5
   m_Name: Button_Green3
   m_TagString: Correct
@@ -2027,7 +2061,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5896226, g: 1, b: 0.60333866, a: 1}
+  m_Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2112,6 +2146,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5225621750877537560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081860979840378796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
 --- !u!1 &7177636324739979337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2445,7 +2494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5882353, g: 1, b: 0.6039216, a: 1}
+  m_Color: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2541,11 +2590,10 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ba7079785941fc4a8fb9d7b0ee1ee59, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: '::'
-  startColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  m_EditorClassIdentifier: Assembly-CSharp::IncorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
   endColour: {r: 1, g: 0, b: 0, a: 1}
   transitionDuration: 10
-  delayBeforeStart: 5
 --- !u!1 &7792484392951584896
 GameObject:
   m_ObjectHideFlags: 0

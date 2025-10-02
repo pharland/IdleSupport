@@ -12,9 +12,33 @@ PrefabInstance:
       propertyPath: m_text
       value: Fix calculation
       objectReference: {fileID: 0}
+    - target: {fileID: 338294200533144429, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 338294200533144429, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 338294200533144429, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
+      objectReference: {fileID: 0}
     - target: {fileID: 839889883986005686, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: emailTitle
       value: Incorrect stats
+      objectReference: {fileID: 0}
+    - target: {fileID: 858613517604791455, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 858613517604791455, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 858613517604791455, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 1237324436831040604, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
@@ -28,13 +52,69 @@ PrefabInstance:
       propertyPath: m_text
       value: JJ O'Smithy - Amazonian
       objectReference: {fileID: 0}
+    - target: {fileID: 1836284675686245042, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.b
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836284675686245042, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.g
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836284675686245042, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.r
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 1836284675686245042, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_EditorClassIdentifier
+      value: Assembly-CSharp::IncorrectButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2271404086559957812, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
       value: Restart PC
       objectReference: {fileID: 0}
+    - target: {fileID: 3365789831683804598, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.b
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365789831683804598, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.g
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365789831683804598, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: startColour.r
+      value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 3365789831683804598, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_EditorClassIdentifier
+      value: Assembly-CSharp::IncorrectButton
+      objectReference: {fileID: 0}
     - target: {fileID: 5181796877448258736, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_text
       value: Incorrect stats
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361288000792804116, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361288000792804116, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5361288000792804116, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441222940979565327, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441222940979565327, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 5441222940979565327, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
       objectReference: {fileID: 0}
     - target: {fileID: 5451068009645961043, guid: e181fc346b3d4e74596089af78b21869, type: 3}
       propertyPath: m_Name
@@ -126,8 +206,89 @@ PrefabInstance:
         team do not match up, AGAIN. \r\nFix immediately or expect us to look for
         other vendors.\n\r\nJJ O'Smithy\nAmazonian\r\n---------------------------------------------------------"
       objectReference: {fileID: 0}
+    - target: {fileID: 9031872104432338310, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031872104432338310, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8509804
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031872104432338310, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8509804
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1873918806935737023, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7521565646956154132}
+    - targetCorrespondingSourceObject: {fileID: 2490472445774668126, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9203419372575535879}
+    - targetCorrespondingSourceObject: {fileID: 7081860979840378796, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3645295146379749684}
   m_SourcePrefab: {fileID: 100100000, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+--- !u!1 &384319794121543691 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2490472445774668126, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+  m_PrefabInstance: {fileID: 2871765696424456533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9203419372575535879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384319794121543691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
+--- !u!1 &4457420785343800298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1873918806935737023, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+  m_PrefabInstance: {fileID: 2871765696424456533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7521565646956154132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4457420785343800298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
+--- !u!1 &5016267426679871225 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7081860979840378796, guid: e181fc346b3d4e74596089af78b21869, type: 3}
+  m_PrefabInstance: {fileID: 2871765696424456533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3645295146379749684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5016267426679871225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e073ab11cb504649aa0b6bd7be477ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CorrectButton
+  startColour: {r: 0.85, g: 0.85, b: 0.85, a: 1}
+  endColour: {r: 0.5960785, g: 0.9843138, b: 0.5960785, a: 1}
+  transitionDuration: 10
